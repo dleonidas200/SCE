@@ -5,7 +5,7 @@
 ///                Departamento de Computação e Tecnologia                    ///\n");
 ///                   Disciplina DCT1106 -- Programação                       ///\n");
 ///                 Projeto Sistema de Controle de Estoque                    ///\n");
-///             Developed by  @dleoniidas200 @MarlemM - Jan, 2021             ///\n");
+///             Developed by  @dleonidas200 @MarlemM - Jan, 2021              ///\n");
 ///                                                                           ///\n");
 /////////////////////////////////////////////////////////////////////////////////\n");
 
@@ -29,7 +29,7 @@ void menuSobre(void) {
     printf("///                Departamento de Computação e Tecnologia                    ///\n");
     printf("///                   Disciplina DCT1106 -- Programação                       ///\n");
     printf("///                 Projeto Sistema de Controle de Estoque                    ///\n");
-    printf("///             Developed by  @dleoniidas200 @MarlemM - Jan, 2021             ///\n");
+    printf("///             Developed by  @dleonidas200 @MarlemM - Jan, 2021              ///\n");
     printf("///                                                                           ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                           ///\n");
