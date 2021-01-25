@@ -33,15 +33,15 @@ void menuSobre(void) {
     printf("///                                                                           ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                           ///\n");
-    printf("///       = = = = =      Sistema de Controle de Estque        = = = = =       ///\n");
+    printf("///       = = = = =      Sistema de Controle de Estoque       = = = = =       ///\n");
     printf("///                                                                           ///\n");
     printf("///   As empresas da atualidade utilizam complexos sistemas gerenciais para,  ///\n");
     printf("///   entre várias outras funções, gerenciar seu estoque de produtos. Geren-  ///\n");
     printf("///   ciar estoques de maneira eficiente, sem a ajuda de um sistema automa-   ///\n");
     printf("///   tizado, é algo difícil para as pequenas empresas e impossível para      ///\n");
     printf("///   as grandes. O presente projeto tem como objetivo propor um software     ///\n");
-    printf("///   que ofereçafuncionalidades básicas relacionadas ao controle de inven-   ///\n");
-    printf("///   tário de uma empresa, visandofacilitar a administração de estoques      ///\n");
+    printf("///   que ofereça funcionalidades básicas relacionadas ao controle de inven-  ///\n");
+    printf("///   tário de uma empresa, visando facilitar a administração de estoques     ///\n");
     printf("///   de produtos dos mais diversos tipos.                                    ///\n");
     printf("///                                                                           ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////\n");
