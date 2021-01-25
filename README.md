@@ -1,6 +1,6 @@
 # Projeto
 
-    SIG-Pantry - Um Sistema de Controle de Estoque
+    SIG-Inventory - Um Sistema de Controle de Estoques
 
 # Finalidade
 
