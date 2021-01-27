@@ -10,14 +10,33 @@
 /////////////////////////////////////////////////////////////////////////////////\n");
 
 #include <stdio.h>
+#include <stdlib.h>
 
+
+/// 
+/// Assinaturas das funções
+///
 void menuSobre(void);
+void menuPrincipal(void);
+void menuProduto(void);
+void menuAtualizar(void);
+void telaInventario(void);
+void menuSaidaproduto(void);
 
+
+///
+/// Programa Principal
+///
 int main(void) {
     menuSobre();
+    menuPrincipal();
+    menuProduto();
+    menuAtualizar();
+    telaInventario();
+    menuSaidaproduto();
     return 0;
 
-}
+    }
 
 
 void menuSobre(void) {
@@ -44,6 +63,175 @@ void menuSobre(void) {
     printf("///   tário de uma empresa, visando facilitar a administração de estoques     ///\n");
     printf("///   de produtos dos mais diversos tipos.                                    ///\n");
     printf("///                                                                           ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////////////\n");
+
+
+void menuPrincipal(void) {
+
+    system("clear");
+	printf("\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///          ===================================================          ///\n");
+	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+	printf("///          = = = =   Sistema de Controle de Estoque    = = = =          ///\n");
+	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+	printf("///          ===================================================          ///\n");
+	printf("///            Developed by @dleonidas200 @MarlemM - Jan, 2021            ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+	printf("///           = = = = = = = =  Menu Principal = = = = = = = =             ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+	printf("///                                                                       ///\n");
+	printf("///           1. Cadastrar produto                                        ///\n");
+	printf("///           2. Saida de produto                                         ///\n");
+	printf("///           3. Atualizar produto                                        ///\n");
+	printf("///           4. Exibir inventario                                        ///\n");
+    printf("///           5. Exibir relatorio                                         ///\n");
+	printf("///           6. Pesquisar no estoque                                     ///\n");
+	printf("///           0. Encerra o programa                                       ///\n");
+    printf("///           x. Informações sobre o sistema                              ///\n");
+	printf("///                                                                       ///\n");
+	printf("///           Escolha a opção desejada:                                   ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("\n");
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
+    
+}
+
+void menuProduto(void) {
+    system("clear");
+	printf("\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///          ===================================================          ///\n");
+	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+	printf("///          = = = =   Sistema de Controle de Estoque    = = = =          ///\n");
+	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+	printf("///          ===================================================          ///\n");
+	printf("///            Developed by @dleonidas200 @MarlemM - Jan, 2021            ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = =                 ///\n");
+	printf("///           = = = = = = =  CADASTRO DE PRODUTOS = = = =                 ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = =                 ///\n");
+	printf("///                                                                       ///\n");
+	printf("///           1. Cadastrar um novo produto                                ///\n");
+	printf("///           2. Pesquisar os dados de um produto                         ///\n");
+	printf("///           3. Atualizar produto                                        ///\n");
+	printf("///           4. Excluir um produto do sistema                            ///\n");
+	printf("///           0. Voltar ao menu anterior                                  ///\n");
+	printf("///                                                                       ///\n");
+	printf("///           Escolha a opção desejada:                                   ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("\n");
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
+}
+
+
+void menuSaidaproduto(void) {
+    system("clear");
+	printf("\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///          ===================================================          ///\n");
+	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+	printf("///          = = = =   Sistema de Controle de Estoque    = = = =          ///\n");
+	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+	printf("///          ===================================================          ///\n");
+	printf("///            Developed by @dleonidas200 @MarlemM - Jan, 2021            ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");                                                                       ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+	printf("///           = = = = = = = =  Saida de produto = = = = = = =             ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+	printf("///                                                                       ///\n");
+	printf("///           Nome:                                                       ///\n");
+    printf("///           Codigo de barra:                                            ///\n");
+    printf("///           Validade:                                                   ///\n");
+	printf("///           0. Voltar ao menu anterior                                  ///\n");
+	printf("///                                                                       ///\n");
+	printf("///           Escolha a opção desejada:                                   ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("\n");
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
+}
+
+
+void menuAtualizar(void) {
+    system("clear");
+	printf("\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///          ===================================================          ///\n");
+	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+	printf("///          = = = =   Sistema de Controle de Estoque    = = = =          ///\n");
+	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+	printf("///          ===================================================          ///\n");
+	printf("///            Developed by @dleonidas200 @MarlemM - Jan, 2021            ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+	printf("///           = = = = = = =  Atualizar produtos = = = = = = =             ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+	printf("///                                                                       ///\n");
+	printf("///           1. Alterar nome do produto                                  ///\n");
+	printf("///           2. Alterar Codigo de barra                                  ///\n");
+	printf("///           3. Alterar Validade                                         ///\n");
+	printf("///           4. Alterar valor                                            ///\n");
+	printf("///           0. Voltar ao menu anterior                                  ///\n");
+	printf("///                                                                       ///\n");
+	printf("///           Escolha a opção desejada:                                   ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("\n");
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
+}
+
+
+void telaInventario(void) {
+    system("clear");
+	printf("\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///          ===================================================          ///\n");
+	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+	printf("///          = = = =   Sistema de Controle de Estoque    = = = =          ///\n");
+	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+	printf("///          ===================================================          ///\n");
+	printf("///            Developed by @dleonidas200 @MarlemM - Jan, 2021            ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+	printf("///           = = = = = = =  Exibir inventario   = = = = = = =             ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+	printf("///                                                                       ///\n");
+	printf("///           1. Listar                                                   ///\n");
+	printf("///           0. Voltar ao menu anterior                                  ///\n");
+	printf("///                                                                       ///\n");
+	printf("///           Escolha a opção desejada:                                   ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	getchar();
+
+
     printf("/////////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                           ///\n");
     printf("///       = = = = = = = = = =        Equipe         = = = = = = = = = =       ///\n");
