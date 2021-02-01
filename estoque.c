@@ -233,6 +233,8 @@ void telaInventario(void) {
 	printf("///                                                                     	  ///\n");
 	printf("///                                                                     	  ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////////\n");
+	printf("\n");
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
 
 	void menuEntradaproduto(void) {
