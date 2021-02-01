@@ -22,6 +22,7 @@ void menuProduto(void);
 void menuAtualizar(void);
 void telaInventario(void);
 void menuSaidaproduto(void);
+void menuEntradaproduto(void)
 void telaRelatorio(void);
 
 
@@ -36,6 +37,7 @@ int main(void) {
     telaInventario();
     menuSaidaproduto();
 	telaRelatorio();
+	menuEntradaproduto()
     return 0;
 
     }
@@ -232,6 +234,38 @@ void telaInventario(void) {
 	printf("///                                                                     	  ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////////\n");
 	getchar();
+
+	void menuEntradaproduto(void) {
+    system("clear");
+	printf("\n");
+	printf("/////////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                           ///\n");
+	printf("///          ===================================================              ///\n");
+	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =         	  ///\n");
+	printf("///          = = = =   Sistema de Controle de Estoque    = = = =        	  ///\n");
+	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =         	  ///\n");
+	printf("///          ===================================================        	  ///\n");
+	printf("///            Developed by @dleonidas200 @MarlemM - Jan, 2021         	 	  ///\n");
+	printf("///                                                                      	  ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////////\n");                                                                      ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =                 ///\n");
+	printf("///           = = = = = = =  Entrada de produto = = = = = = =           	  ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =           	  ///\n");
+	printf("///                                                                    		  ///\n");
+	printf("///           Nome:                                                     	  ///\n");
+    printf("///           Codigo de barra:                                          	  ///\n");
+    printf("///           Validade:                                                 	  ///\n");
+	printf("///           0. Voltar ao menu anterior                               	      ///\n");
+	printf("///                                                                           ///\n");
+	printf("///           Escolha a opção desejada:                                       ///\n");
+	printf("///                                                                           ///\n");
+	printf("///                                                                     	  ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////////\n");
+	printf("\n");
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
+}
+
 
 	void telaRelatorio(void) {
     system("clear");
