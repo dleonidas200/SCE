@@ -29,7 +29,7 @@ void menuAtualizar(void);
 void telaAlterarNomedoProduto(void);                             	  
 void telaAlterarCodigodeBarra(void);                             	  
 void telaAlterarValidade(void);                                       	 
-void telaAlterarvalor(void);  
+void telaAlterarValor(void);  
 
 void telaInventario(void);
 void menuSaidaproduto(void);
@@ -52,7 +52,7 @@ int main(void) {
 	telaAlterarNomedoProduto();                             	  
 	telaAlterarCodigodeBarra();                             	  
 	telaAlterarValidade();                                       	 
-	telaAlterarvalor
+	telaAlterarValor
     telaInventario();
     menuSaidaproduto();
 	telaRelatorio();
