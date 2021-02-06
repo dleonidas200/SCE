@@ -152,7 +152,7 @@ void menuProduto(void) {
 	printf("///           0. Voltar ao menu anterior                                	  ///\n");
 	printf("///                                                                     	  ///\n");
 	printf("///           Escolha a opção desejada:                                 	  ///\n");
-	printf("///                                                                     	  ///\n");
+	printf("///                                                                      	  ///\n");
 	printf("///                                                                     	  ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
