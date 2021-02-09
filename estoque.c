@@ -25,13 +25,7 @@ void telaCadastrarNovoProduto(void);
 void telaPesquisarDadosDeUmProduto(void);                      	
 void telaAtualizarProduto(void);                                      	  
 void telaExcluirUmProdutoDoSistema(void); 
-
-char menuAtualizar(void);
-void telaAlterarNomedoProduto(void);                             	  
-void telaAlterarCodigodeBarra(void);                             	  
-void telaAlterarValidade(void);                                       	 
-void telaAlterarValor(void);  
-
+ 
 char telaInventario(void);
 void menuSaidaproduto(void);
 void menuEntradaproduto(void)
@@ -158,9 +152,7 @@ void telaCadastrarNovoProduto(void){
 
 	char codBarras[14];
 	char nomeItem[51];
-	char dataValidade[11];
-	
-//tirar a parte de quantidade da tela
+	char dataValidade[11];	
 	system("clear");
 	printf("/////////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                           ///\n");
@@ -182,7 +174,6 @@ void telaCadastrarNovoProduto(void){
 	printf("///            - Data de Validade:                                  		  ///\n");
     scanf("%[0-9/]", dataValidade);
 	getchar();
-	//printf("///            - Quantidade:                                        		  ///\n");
     printf("///        _______________________________________________________     		  ///\n");
     printf("///                                                                 		  ///\n");
     printf("///          Deseja adicionar um novo produto (S/n) ?                 		  ///\n");
@@ -192,11 +183,11 @@ void telaCadastrarNovoProduto(void){
     printf("///        _______________________________________________________  		  ///\n");
     printf("///                                                                 		  ///\n");
     printf("///              Código de Barras: %s \n", codBarras);
-    printf("///                     Descrição: %s \n", nomeItem);
+    printf("///              Nome: %s \n", nomeItem);
     printf("///              Data de Validade: %s \n", dataValidade);
-    printf("///        ___________________________________________________        ///\n");
-    printf("///                                                                   ///\n");
-    printf("///                >>> Tecle <ENTER> para continuar...                ///\n");
+    printf("///        _______________________________________________________     		  ///\n");
+    printf("///                                                                           ///\n");
+    printf("///                >>> Tecle <ENTER> para continuar...                        ///\n");
 	printf("///////////////////////////////////////////////////////////////////////////////\n\n");
     printf("\t\t>>> Tecle <ENTER> para continuar...\n");
     getchar();
@@ -224,7 +215,6 @@ void telaPesquisarDadosDeUmProduto(void){
     printf("///            - Codigo de Barras:                                  		  ///\n");
     printf("///            - Nome:                                              		  ///\n");
     printf("///            - Data de Validade:                                  		  ///\n");
-    //printf("///            - Quantidade:                                        		  ///\n");
     printf("///        _______________________________________________________  		  ///\n");
     printf("///                                                                 		  ///\n");  
     printf("///            Não foi possível encontrar produto cadastrado com o     		  ///\n");    
@@ -237,10 +227,13 @@ void telaPesquisarDadosDeUmProduto(void){
 
 }
 
-void telaAtualizarProduto(void); 
+void telaAtualizarProduto(void);{ 
 	char codBarras[14];
     char nomeItem[51];
     char dataValidade[11];
+    char resposta[2];
+    char respostaLetras[2];
+    char decisao[2];
 	system("clear");
 	system("clear");
     printf("/////////////////////////////////////////////////////////////////////////////////\n");
@@ -253,8 +246,104 @@ void telaAtualizarProduto(void);
     printf("///        _______________________________________________________      	  ///\n");
     printf("///                                                                 		  ///\n");
     printf("///            *Atualizar Produto:                       	            	  ///\n");
-
-	//continuar depois
+    printf("///                                                                           ///\n");
+    printf("///            - Código de Barras:                                            ///\n");
+    scanf("%[0-9]", codBarras);
+    getchar();
+    printf("///        _______________________________________________________      	  ///\n");
+    printf("///                                                                           ///\n");
+    printf("///                       VALOR DE ENTRADA:                                   ///\n");
+    printf("///                                                                           ///\n");
+    printf("///            - Código de Barras: %s \n",codBarras);
+    printf("///        _______________________________________________________      	  ///\n");
+    printf("///                                                                           ///\n");
+    printf("///            PRODUTO LOCALIZADO!                                            ///\n"); 
+    printf("///                                                                           ///\n");
+    printf("///            - Código de Barras:                                            ///\n");
+    printf("///            - Nome do item:                                                ///\n");
+    printf("///            - Data de Validade:                                            ///\n");
+    printf("///        _______________________________________________________      	  ///\n");
+    printf("///                                                                           ///\n");  
+    printf("///            Não foi possível encontrar produto cadastrado com             ///\n");
+    printf("///            o código de barras informado.                                  ///\n");    
+    printf("///        _______________________________________________________      	  ///\n");
+    printf("///                                                                           ///\n");
+    printf("///            - Deseja alterar todos os valores (S/N)? ");
+    scanf("%[SNsn]", resposta);
+    getchar();
+    printf("///        _______________________________________________________      	  ///\n");
+    printf("///                                                                           ///\n");
+    printf("///                       VALOR DE ENTRADA:                                   ///\n");
+    printf("///                                                                           ///\n");
+    printf("///            - Opção escolhida: %s \n",resposta);
+    printf("///        _______________________________________________________      	  ///\n");
+    printf("///                                                                           ///\n");
+    printf("///           INFORME OS NOVOS VALORES DO PRODUTO:                            ///\n");
+    printf("///                                                                           ///\n");
+    printf("///            - Novo Nome: ");
+    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nomeItem);
+    getchar();
+    printf("///            - Nova Data Val. (dd/mm/aaaa): ");
+    scanf("%[0-9/]", dataValidade);
+    getchar();
+    printf("///        _______________________________________________________      	  ///\n");
+    printf("///                                                                           ///\n");
+    printf("///                       VALORES DE ENTRADA:                                 ///\n");
+    printf("///                                                                           ///\n");
+    printf("///                          Nome: %s \n", nomeItem);
+    printf("///              Data de Validade: %s \n", dataValidade);
+    printf("///        _______________________________________________________      	  ///\n");
+    printf("///                                                                           ///\n");
+    printf("///           ESCOLHA O CAMPO À ALTERAR:                                      ///\n");
+    printf("///                                                                           ///\n");
+    printf("///            - Digite 'a' para alterar o nome                               ///\n");
+    printf("///            - Digite 'b' para alterar a validade                           ///\n");
+    printf("///        _______________________________________________________      	  ///\n");
+    printf("///                                                                           ///\n");
+    printf("///            - Informe a sua opção: "); 
+    scanf("%[A-E a-e]", respostaLetras);
+    getchar();
+    printf("///        _______________________________________________________      	  ///\n");
+    printf("///                                                                           ///\n");
+    printf("///                       VALOR DE ENTRADA:                                   ///\n");
+    printf("///                                                                           ///\n");
+    printf("///            - Opção escolhida: %s \n",respostaLetras);
+    printf("///        _______________________________________________________      	  ///\n");
+    printf("///                                                                           ///\n");
+    printf("///            - a) Novo Nome: ");
+    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nomeItem);
+    getchar();
+    printf("///            - b) Nova Data de Validade (dd/mm/aaaa): ");
+    scanf("%[0-9/]", dataValidade);
+    getchar();
+    printf("///        _______________________________________________________      	  ///\n");
+    printf("///                                                                           ///\n");
+    printf("///                       VALORES DE ENTRADA:                                 ///\n");
+    printf("///                                                                           ///\n");
+    printf("///                          Nome: %s \n", nomeItem);
+    printf("///              Data de Validade: %s \n", dataValidade);
+    printf("///        _______________________________________________________      	  ///\n");
+    printf("///                                                                           ///\n");
+    printf("///            - Confirmar operação (S/N) ? ");
+    scanf("%[SNsn]", decisao);
+    getchar();
+    printf("///        _______________________________________________________      	  ///\n");
+    printf("///                                                                           ///\n");
+    printf("///                       VALOR DE ENTRADA:                                   ///\n");
+    printf("///                                                                           ///\n");
+    printf("///            - Opção escolhida: %s \n",decisao);
+    printf("///        _______________________________________________________      	  ///\n");
+    printf("///                                                                           ///\n");
+    printf("///            Produto alterado com sucesso!                                  ///\n");
+    printf("///        _______________________________________________________      	  ///\n");
+    printf("///                                                                           ///\n");
+    printf("///            Operação cancelada!                                            ///\n"); 
+    printf("///        _______________________________________________________      	  ///\n");
+    printf("///                                                                           ///\n");
+    printf("///////////////////////////////////////////////////////////////////////////////\n\n");
+    printf("\t\t>>> Tecle <ENTER> para continuar...\n");
+    getchar();
+}
 
 
 void telaExcluirUmProdutoDoSistema(void);
@@ -274,7 +363,7 @@ void telaExcluirUmProdutoDoSistema(void);
     printf("///            *Excluir Um Produto do Sistema:                       		  ///\n");
 	printf("///                                                                           ///\n");
     printf("///            - Código de Barras:                                 		      ///\n");
-   scanf("%[0-9]", codBarras);
+    scanf("%[0-9]", codBarras);
     printf("///        _______________________________________________________      	  ///\n");
     printf("///                                                                 		  ///\n");
     printf("///            PRODUTO LOCALIZADO!                                  		  ///\n");
@@ -282,7 +371,6 @@ void telaExcluirUmProdutoDoSistema(void);
     printf("///            - Codigo de Barras:                                  		  ///\n");
     printf("///            - Nome:                                              		  ///\n");
     printf("///            - Data de Validade:                                  		  ///\n");
-    printf("///            - Quantidade:                                        		  ///\n");
 	printf("///        _______________________________________________________      	  ///\n");
     printf("///                                                                 		  ///\n");  
     printf("///            Não foi possível encontrar produto cadastrado com o     		  ///\n");    
@@ -337,95 +425,6 @@ void menuSaidaproduto(void) {
 	getchar();
 }
 
-
-void menuAtualizar(void) {
-    system("clear");
-	printf("\n");
-	printf("/////////////////////////////////////////////////////////////////////////////////\n");
-	printf("///                                                                           ///\n");
-	printf("///          ===================================================              ///\n");
-	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =         	  ///\n");
-	printf("///          = = = =   Sistema de Controle de Estoque    = = = =        	  ///\n");
-	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =         	  ///\n");
-	printf("///          ===================================================        	  ///\n");
-	printf("///            Developed by @dleonidas200 @MarlemM - Jan, 2021         	 	  ///\n");
-	printf("///                                                                      	  ///\n");
-	printf("/////////////////////////////////////////////////////////////////////////////////\n");
-	printf("///                                                                     	  ///\n");
-	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =           	  ///\n");
-	printf("///           = = = = = = =  Atualizar produtos = = = = = = =           	  ///\n");
-	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =           	  ///\n");
-	printf("///                                                                     	  ///\n");
-	printf("///           1. Alterar nome do produto                                	  ///\n");
-	printf("///           2. Alterar Codigo de barra                                	  ///\n");
-	printf("///           3. Alterar Validade                                       	  ///\n");
-	printf("///           4. Alterar valor                                          	  ///\n");
-	printf("///           0. Voltar ao menu anterior                                	  ///\n");
-	printf("///                                                                     	  ///\n");
-	printf("///           Escolha a opção desejada:                                 	  ///\n");
-	printf("///                                                                     	  ///\n");
-	printf("///                                                                     	  ///\n");
-	printf("/////////////////////////////////////////////////////////////////////////////////\n");
-	printf("\n");
-    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-	getchar();
-}
-
-void telaAlterarNomedoProduto(void);
-	system("clear")
-	printf("\n");
-	printf("/////////////////////////////////////////////////////////////////////////////////\n");
-	printf("///                                                                           ///\n");
-	printf("///          ===================================================              ///\n");
-	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =         	  ///\n");
-	printf("///          = = = =    Sistema de Controle de Estoque   = = = =        	  ///\n");
-	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =         	  ///\n");
-	printf("///          ===================================================        	  ///\n");
-    printf("///        _______________________________________________________      	  ///\n");
-
-//continuar
-
-void telaAlterarCodigodeBarra(void); 
-	system("clear")
-	printf("\n");
-	printf("/////////////////////////////////////////////////////////////////////////////////\n");
-	printf("///                                                                           ///\n");
-	printf("///          ===================================================              ///\n");
-	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =         	  ///\n");
-	printf("///          = = = =    Sistema de Controle de Estoque   = = = =        	  ///\n");
-	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =         	  ///\n");
-	printf("///          ===================================================        	  ///\n");
-    printf("///        _______________________________________________________      	  ///\n");
-
-//coninuar
-
-void telaAlterarValidade(void); 
-	system("clear")
-	printf("\n");
-	printf("/////////////////////////////////////////////////////////////////////////////////\n");
-	printf("///                                                                           ///\n");
-	printf("///          ===================================================              ///\n");
-	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =         	  ///\n");
-	printf("///          = = = =    Sistema de Controle de Estoque   = = = =        	  ///\n");
-	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =         	  ///\n");
-	printf("///          ===================================================        	  ///\n");
-    printf("///        _______________________________________________________      	  ///\n");
-
-//continuar
-
-void telaAlterarvalor(void);  
-	system("clear")
-	printf("\n");
-	printf("/////////////////////////////////////////////////////////////////////////////////\n");
-	printf("///                                                                           ///\n");
-	printf("///          ===================================================              ///\n");
-	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =         	  ///\n");
-	printf("///          = = = =    Sistema de Controle de Estoque   = = = =        	  ///\n");
-	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =         	  ///\n");
-	printf("///          ===================================================        	  ///\n");
-    printf("///        _______________________________________________________      	  ///\n");
-
-//continuar
 
 void telaInventario(void) {
     system("clear");
@@ -515,6 +514,7 @@ void telaInventario(void) {
 	printf("/////////////////////////////////////////////////////////////////////////////////\n");
 	getchar();
 }
+
 void menuSobre(void) {
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////////////\n");
