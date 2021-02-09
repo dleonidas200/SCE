@@ -38,13 +38,13 @@ void menuSobre(void);
 ///
 
 int main(void) {
-	char opcao1, opcoa2, opcao3, opcao4, opcao5, opcao6;
+	char opcao1, opcao2, opcao3, opcao4, opcao5, opcao6;
 
 
     menuSobre();
 	opcao1 = menuPrincipal();
 
-	opcoa2 = menuProduto();
+	opcao2 = menuProduto();
 	telaCadastrarNovoProduto();
 	telaPesquisarDadosDeUmProduto();
 	telaAtualizarProduto();
@@ -101,14 +101,14 @@ char menuPrincipal(void) {
 	printf("Qual a sua opção:");
 	scanf("%c", opcao);
 	getchar();
-	rintf("\n");
+	printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 		getchar();
 		return opcao;
     
 }
 
-char manuProdutos(void){
+char menuProdutos(void){
 	char opcao;
 
     system("clear");
@@ -310,10 +310,10 @@ void telaAtualizarProduto(void);{
     printf("///            - Opção escolhida: %s \n",respostaLetras);
     printf("///        _______________________________________________________      	  ///\n");
     printf("///                                                                           ///\n");
-    printf("///            - a) Novo Nome: ");
+    printf(("///            - a) Novo Nome: ");
     scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nomeItem);
     getchar();
-    printf("///            - b) Nova Data de Validade (dd/mm/aaaa): ");
+    printf(("///            - b) Nova Data de Validade (dd/mm/aaaa): ");
     scanf("%[0-9/]", dataValidade);
     getchar();
     printf("///        _______________________________________________________      	  ///\n");
@@ -540,8 +540,6 @@ void menuSobre(void) {
     printf("///   de produtos dos mais diversos tipos.                                    ///\n");
     printf("///                                                                           ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////\n");
-}
-
     printf("/////////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                           ///\n");
     printf("///       = = = = = = = = = =        Equipe         = = = = = = = = = =       ///\n");
