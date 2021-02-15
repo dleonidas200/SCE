@@ -1,13 +1,13 @@
-/////////////////////////////////////////////////////////////////////////////////////////////\n");
-///                                                                                       ///\n");
-///                     Universidade Federal do Rio Grande do Norte                       ///\n");
-///                          Centro de Ensino Superior do Seridó                          ///\n");
-///                        Departamento de Computação e Tecnologia                 		  ///\n");
-///                          Disciplina DCT1106 -- Programação                     		  ///\n");
-///                       Projeto Sistema de Controle de Estoque                   		  ///\n");
-///                  Developed by  @dleonidas200 @MarlemM - Jan, 2021            		  ///\n");
-///                                                                         			  ///\n");
-/////////////////////////////////////////////////////////////////////////////////////////////\n");
+/////////////////////////////////////////////////////////////////////////////////////////////
+///                                                                                       ///
+///                     Universidade Federal do Rio Grande do Norte                       ///
+///                          Centro de Ensino Superior do Seridó                          ///
+///                        Departamento de Computação e Tecnologia                 		  ///
+///                          Disciplina DCT1106 -- Programação                     		  ///
+///                       Projeto Sistema de Controle de Estoque                   		  ///
+///                  Developed by  @dleonidas200 @MarlemM - Jan, 2021            		  ///
+///                                                                         			  ///
+/////////////////////////////////////////////////////////////////////////////////////////////
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -108,9 +108,9 @@ char menuPrincipal(void) {
 	printf("///           3. Atualizar produto                                       	  ///\n");
     printf("///           4. Exibir relatorio                                       	  ///\n");
 	printf("///           5. Pesquisar no estoque                                   	  ///\n");
+	printf("///           6. Informações sobre o sistema                           		  ///\n");
 	printf("///           0. Encerra o programa                                     	  ///\n");
-    printf("///           6. Informações sobre o sistema                           		  ///\n");
-	printf("///                                                                     	  ///\n");
+    printf("///                                                                     	  ///\n");
 	printf("///           Escolha a opção desejada:                                 	  ///\n");
 	printf("///                                                                     	  ///\n");
 	printf("///                                                                     	  ///\n");
@@ -211,6 +211,7 @@ void telaCadastrarNovoProduto(void){
 }
 
 void telaPesquisarDadosDeUmProduto(void){
+    char codBarras[14];
     system("clear");
     printf("/////////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                           ///\n");
@@ -363,7 +364,7 @@ void telaAtualizarProduto(void);{
 }
 
 
-void telaExcluirUmProdutoDoSistema(void);
+void telaExcluirUmProdutoDoSistema(void); {
 	char codBarras[14];
 	char resposta[2];
 
@@ -472,7 +473,8 @@ void telaInventario(void) {
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
 }
-	void menuEntradaproduto(void) {
+
+void menuEntradaproduto(void) {
     system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////////\n");
