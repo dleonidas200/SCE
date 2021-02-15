@@ -38,33 +38,51 @@ void menuSobre(void);
 ///
 
 int main(void) {
-	char opcao1, opcao2, opcao3, opcao4, opcao5, opcao6;
+	char opcao;
+    do{
 
-
-    menuSobre();
-	opcao1 = menuPrincipal();
-
-	opcao2 = menuProduto();
-	telaCadastrarNovoProduto();
-	telaPesquisarDadosDeUmProduto();
-	telaAtualizarProduto();
-	telaExcluirUmProdutoDoSistema();
-
-	opcao3 = menuAtualizar();
-	telaAtualizarProduto();
-	telaAlterarCodigodeBarra();
-	telaAlterarValidade();
-	telaAlterarValor();
-
-	opcao4 = menuSaidaproduto();
-	
-	opcao5 = menuEntradaproduto();
-
-	opcao6 = telaRelatorio();
-
+        opcao = menuPrincipal();
+        switch (opcao){
+            case '1': menuProduto();
+                                break;
+            case '2': menuAtualizar();
+                                break;
+            case '3': menuSaidaproduto();
+                                break;
+            case '4': menuEntradaproduto();
+                                break:
+            case '5': telaRelatorio();
+                                break:  
+            case '6': menuSobre(); 
+                                break;   
+        }                        
+    }while(opcao != 0);
     return 0;
 
+        //menuSobre();
+        //opcao1 = menuPrincipal();
+
+        //opcao2 = menuProduto();
+        //telaCadastrarNovoProduto();
+        //telaPesquisarDadosDeUmProduto();
+        //telaAtualizarProduto();
+        //telaExcluirUmProdutoDoSistema();
+
+        //opcao3 = menuAtualizar();
+        //telaAtualizarProduto();
+        //telaAlterarCodigodeBarra();
+        //telaAlterarValidade();
+        //telaAlterarValor();
+
+        //opcao4 = menuSaidaproduto();
+            
+        //opcao5 = menuEntradaproduto();
+
+        //opcao6 = telaRelatorio();
+
+        //return 0;   
 }
+
 char menuPrincipal(void) {
 	char opcao;
 	
@@ -88,11 +106,10 @@ char menuPrincipal(void) {
 	printf("///           1. Cadastrar produto                                       	  ///\n");
 	printf("///           2. Saida de produto                                             ///\n");
 	printf("///           3. Atualizar produto                                       	  ///\n");
-	printf("///           4. Exibir inventario                                       	  ///\n");
-    printf("///           5. Exibir relatorio                                       	  ///\n");
-	printf("///           6. Pesquisar no estoque                                   	  ///\n");
+    printf("///           4. Exibir relatorio                                       	  ///\n");
+	printf("///           5. Pesquisar no estoque                                   	  ///\n");
 	printf("///           0. Encerra o programa                                     	  ///\n");
-    printf("///           x. Informações sobre o sistema                           		  ///\n");
+    printf("///           6. Informações sobre o sistema                           		  ///\n");
 	printf("///                                                                     	  ///\n");
 	printf("///           Escolha a opção desejada:                                 	  ///\n");
 	printf("///                                                                     	  ///\n");
