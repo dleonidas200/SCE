@@ -34,5 +34,6 @@ void menuSobre(void) {
     printf("///   e por Márlem Magno da Silva Dantas!                                     ///\n");
     printf("///                                                                           ///\n");
     printf("/////////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n");
+    printf("\t\t>>> Tecle <ENTER> para continuar...\n");
+    getchar();
 }

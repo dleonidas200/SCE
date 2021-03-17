@@ -1,10 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "moduloValidador.h"
 
 char menuPrincipal(void) {
 	char opcao;
+	int validaOp;
+	int validaOpM;
+	int q = 5;
 
-system("clear");
+	limparTela();
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                           ///\n");
@@ -33,12 +37,23 @@ system("clear");
 	printf("///                                                                     	  ///\n");
 	printf("///                                                                     	  ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////////\n");
-	printf("Qual a sua opção:");
-	scanf("%c", opcao);
-	getchar();
-	printf("\n");
-    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-		getchar();
-		return opcao;
-    
-}
+	
+	do{
+        printf("Informe a sua opção : ");
+        scanf("%c", &opcao);
+        scanf("%[^\n]", &opcao);
+        getchar();
+
+        printf("%c \n", opcao);
+
+        validaOp = testeDigito(opcao);
+        validaOpM = validaOpcaoMenu(opcao, q); 
+        validaOpM = validaOpcaoMenu(opcao, 5); 
+
+        if(!validaOp || !validaOpM){
+            printf("Opção inválida, tente novamente!\n");
+        }
+    }while(!validaOp || !validaOpM)
+	return opcao;
+	
+	}
