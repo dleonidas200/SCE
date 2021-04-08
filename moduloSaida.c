@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-
+#include "moduloValidador.h"
 
 void menuSaidaproduto(void) {
     system("clear");

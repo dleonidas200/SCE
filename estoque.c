@@ -12,11 +12,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <moduloMain.h>
-#include <moduloProduto.h>
-#include <moduloRelatorio.h>
-#include <moduloSaida.h>
-#include <moduloSobre.h>
+#include "moduloMain.h"
+#include "moduloProduto.h"
+#include "moduloRelatorio.h"
+#include "moduloSaida.h"
+#include "moduloSobre.h"
 
 int main(void) {
 	char opcao;
@@ -25,18 +25,20 @@ int main(void) {
         opcao = menuPrincipal();
         switch (opcao){
             case '1': menuProduto();
-                                break;
+                break;
             case '2': menuAtualizar();
-                                break;
+                break;
             case '3': menuSaidaproduto();
-                                break;
-            case '4': menuEntradaproduto();
-                                break:
+                break;
+            case '4': menuEntradaproduto();    
+                break;
             case '5': telaRelatorio();
-                                break:  
+                break;  
             case '6': menuSobre(); 
-                                break;   
+                break;   
+            default:
+                printf("  Valor digitado incorreto \n");
         }                        
-    }while(opcao != 0);
+    }while(opcao != '0');
     return 0;
 }  

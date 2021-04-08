@@ -1,3 +1,7 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "moduloValidador.h"
+
 void telaRelatorio(void) {
     system("clear");
 	printf("\n");

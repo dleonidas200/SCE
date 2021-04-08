@@ -43,12 +43,8 @@ char menuPrincipal(void) {
         scanf("%c", &opcao);
         scanf("%[^\n]", &opcao);
         getchar();
-
-        printf("%c \n", opcao);
-
         validaOp = testeDigito(opcao);
         validaOpM = validaOpcaoMenu(opcao, q); 
-        validaOpM = validaOpcaoMenu(opcao, 5); 
 
         if(!validaOp || !validaOpM){
             printf("Opção inválida, tente novamente!\n");

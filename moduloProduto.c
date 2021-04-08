@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "moduloValidador.h"
 
 char menuProdutos(void){
 	char opcao;
