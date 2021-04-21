@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include <stdlib.h>
 void limpaTela(void);
 
 int testeDigito(char);

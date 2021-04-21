@@ -16,7 +16,7 @@
 #include "moduloProduto.h"
 #include "moduloRelatorio.h"
 #include "moduloSaida.h"
-#include "moduloSobre.h"
+
 
 int main(void) {
 	char opcao;

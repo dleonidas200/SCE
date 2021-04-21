@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "moduloValidador.h"
+
 
 char menuProdutos(void){
 	char opcao;
@@ -59,13 +59,13 @@ void telaCadastrarNovoProduto(void){
     printf("///            *Cadastrar Novo Produto:                              		  ///\n");
     printf("///                                                                    		  ///\n");
     printf("///            - Código de Barras:                                     		  ///\n");
-   	scanf("%[0-9]", codBarras);
+   	scanf("%d[0-9]", codBarras);
     getchar();
 	printf("///            - Nome:                                              	   	  ///\n");
-    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nomeItem);
+    scanf("%s[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nomeItem);
 	getchar();
 	printf("///            - Data de Validade:                                  		  ///\n");
-    scanf("%[0-9/]", dataValidade);
+    scanf("%d[0-9/]", dataValidade);
 	getchar();
     printf("///        _______________________________________________________     		  ///\n");
     printf("///                                                                 		  ///\n");
@@ -102,7 +102,7 @@ void telaPesquisarDadosDeUmProduto(void){
     printf("///            *Pesquisar Dados de Um Produto:                       		  ///\n");
     printf("///                                                                 		  ///\n");
     printf("///            - Codigo de Barras:                                  		  ///\n");
-    scanf("%[0-9]", codBarras);
+    scanf("%s", &codBarras);
 	printf("///        _______________________________________________________      	  ///\n");
     printf("///                                                                 		  ///\n");
     printf("///            *Produto Encontrado!                                  		  ///\n");

@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "moduloValidador.h"
 
 void menuSobre(void) {
     printf("\n");
