@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include <sting.h>
 
 void limpaTela(void){
 	system("clear");
