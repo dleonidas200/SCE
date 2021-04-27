@@ -1,13 +1,12 @@
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
+#include <time.h>
 
-char menuPrincipal(void) {
+char menuPrincipal(void){
+	
 	char opcao;
-	int validaOp;
-	int validaOpM;
-	int q = 5;
-
-	limparTela();
+	
+	system("cls")
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                           ///\n");
@@ -27,28 +26,24 @@ char menuPrincipal(void) {
 	printf("///           1. Cadastrar produto                                       	  ///\n");
 	printf("///           2. Saida de produto                                             ///\n");
 	printf("///           3. Atualizar produto                                       	  ///\n");
-    printf("///           4. Exibir relatorio                                       	  ///\n");
-	printf("///           5. Pesquisar no estoque                                   	  ///\n");
-	printf("///           6. Informações sobre o sistema                           		  ///\n");
+    printf("///           4. Exibir historico                                       	  ///\n");
+	printf("///           5. Pesquisar                                              	  ///\n");
+	printf("///           6. Sobre o sistema                                    		  ///\n");
 	printf("///           0. Encerra o programa                                     	  ///\n");
     printf("///                                                                     	  ///\n");
-	printf("///           Escolha a opção desejada:                                 	  ///\n");
+	printf("///           Escolha a op��o desejada:                                 	  ///\n");
 	printf("///                                                                     	  ///\n");
 	printf("///                                                                     	  ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////////\n");
 	
 	do{
-        printf("Informe a sua opção : ");
-        scanf("%c", &opcao);
-        scanf("%[^\n]", &opcao);
-        getchar();
-        validaOp = testeDigito(opcao);
-        validaOpM = validaOpcaoMenu(opcao, q); 
-
-        if(!validaOp || !validaOpM){
-            printf("Opção inválida, tente novamente!\n");
-        }
-    }while(!validaOp || !validaOpM)
+		printf("Informe a opcao: ");
+		scanf("%c", &opcao)
+		getchar();
+		
+		printf("%c \n", opcao);
+		
+		
+	}while(opcao < '7');
 	return opcao;
-	
-	}
+}
