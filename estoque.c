@@ -1,20 +1,17 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
+
 #include "moduloPrincipal.h"
 #include "moduloProdutos.h"
-//#include "validador.h"
-
+#include "validador.h"
 
 int main(void){
 	
 	FILE *pont_arq;
-	
-	validarArquivo(pont_arq);
-	
+	//validarArquivo(pont_arq);
 	int opcao;
 	struct Registro reg;
-	
 	do{
 		opcao = menuPrincipal();
 		switch(opcao){
@@ -22,11 +19,10 @@ int main(void){
 				printf("Encerrar");
 				break;
 			case 1:
-				cadastrar(pont_arq);
-				
-				printf("Cadastrar");
+				cadastrar(pont_arq);                             //OK
 				break;
 			case 2:
+				excluir(pont_arq);
 				printf("Excluir");
 				break;
 			case 3:
@@ -40,8 +36,6 @@ int main(void){
 				break;
 		}
 			
-	}while(opcao < 0 || opcao > 4);
-	
-	
+	}while(opcao!=0 && opcao <= 4);
 	return 0;
 }

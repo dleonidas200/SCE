@@ -2,18 +2,14 @@
 #include <stdio.h>
 #include <time.h>
 #include <string.h>
-#include <stdbool.h>
+#include "validador.h"
 
-bool validarOpcao(char op, int lim){
-	bool retorno;
+int validarOpcao(int op, int lim){
+	int retorno;
 	if(op >= 0 && op <= lim){
-		retorno = true;
+		retorno = 1;
 	}else{
-		retorno = false;
+		retorno = 0;
 	}
 	return retorno;
-}
-
-int main(){
-	return 0;
 }
