@@ -140,19 +140,25 @@ int validarData(char* data) {
 /// (apenas dígitos) ou retorna 0 caso contrário
 ///
 int validarVal(char* val) {
-  int tam;
+ int tam, dia, mes, ano;
   tam = strlen(val);
-  if (tam != 11) {
+  if (tam != 8) {
     return 0;
   }
   for (int i = 0; i < tam; i++) {
     if (!ehDigito(val[i])) {
-        return 0;
+      return 0;
     }
+  }
+  dia = (val[0] - '0') * 10 + (val[1] - '0');
+  mes = (val[2] - '0') * 10 + (val[3] - '0');
+  ano = (val[4] - '0') * 1000 + (val[5] - '0') * 100 + 
+        (val[6] - '0') * 10 + (val[7] - '0');
+  if (!ehData(dia, mes, ano)) {
+    return 0;
   }
   return 1;
 }
-
 
 /////////////////////////////////////////////////////////////////////////////////////
 /// Retorna 1 se string recebido corresponder a um número de codigo de produto válido 
@@ -161,9 +167,7 @@ int validarVal(char* val) {
 int validarCodBarras(char* codBarras) {
   int tam;
   tam = strlen(codBarras);
-  if (tam < 10 || tam > 11) {
-    return 0;
-  }
+  
   for (int i = 0; i < tam; i++) {
     if (!ehDigito(codBarras[i])) {
       return 0;

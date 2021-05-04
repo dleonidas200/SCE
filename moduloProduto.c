@@ -202,7 +202,7 @@ Produto* telaCadastrarProduto(void) {
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
-	delay(1);
+	//delay(1);
   	return pro;
 }
 
@@ -315,7 +315,7 @@ char* telaExcluirProduto(void) {
 void gravarProduto(Produto* pro) {
 	FILE* fp;
 
-	fp = fopen("produtos.dat", "ab");
+	fp = fopen("produtos.txt", "ab");
 	if (fp == NULL) {
 		telaErroArquivoProduto();
 	}
@@ -329,7 +329,7 @@ Produto* buscarProduto(char* codBarras) {
 	Produto* pro;
 
 	pro = (Produto*) malloc(sizeof(Produto));
-	fp = fopen("produtos.dat", "rb");
+	fp = fopen("produtos.txt", "rb");
 	if (fp == NULL) {
 		telaErroArquivoProduto();
 	}
@@ -367,7 +367,7 @@ void regravarProduto(Produto* pro) {
 	Produto* proLido;
 
 	proLido = (Produto*) malloc(sizeof(Produto));
-	fp = fopen("produtos.dat", "r+b");
+	fp = fopen("produtos.txt", "r+b");
 	if (fp == NULL) {
 		telaErroArquivoProduto();
 	}
