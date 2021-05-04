@@ -1,4 +1,4 @@
-# Projeto
+# Projeto adapted of the @flgorgonio
 
     SIG-Inventory - Um Sistema de Controle de Estoques
 
