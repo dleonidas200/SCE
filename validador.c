@@ -113,7 +113,7 @@ int validarNome(char* nome) {
 /// Retorna 1 se string recebido corresponder a uma data válida (apenas dígitos
 /// e no formato: ddmmaaaa) ou retorna 0 caso contrário
 ///
-int validarData(char* data) {
+int validarData(char* data) {//   011220
   int tam, dia, mes, ano;
   tam = strlen(data);
   if (tam != 8) {
@@ -139,25 +139,19 @@ int validarData(char* data) {
 /// Retorna 1 se string recebido corresponder a uma data de validade válida
 /// (apenas dígitos) ou retorna 0 caso contrário
 ///
-int validarVal(char* val) {
- int tam, dia, mes, ano;
-  tam = strlen(val);
-  if (tam != 8) {
-    return 0;
-  }
-  for (int i = 0; i < tam; i++) {
-    if (!ehDigito(val[i])) {
+int validarVal(char* val) {// 01/12/2020
+    char dia[3]={val[0],val[1]};
+    char mes[3]={val[3],val[4]};
+    char ano[5]={val[6],val[7],val[8],val[9]};
+    int diaInt,mesInt,anoInt;
+    diaInt = atoi(dia);
+    mesInt = atoi(mes);
+    anoInt = atoi(ano);
+    int ehValido = 0;
+    if(ehData(diaInt,mesInt,anoInt)!=1){
       return 0;
     }
-  }
-  dia = (val[0] - '0') * 10 + (val[1] - '0');
-  mes = (val[2] - '0') * 10 + (val[3] - '0');
-  ano = (val[4] - '0') * 1000 + (val[5] - '0') * 100 + 
-        (val[6] - '0') * 10 + (val[7] - '0');
-  if (!ehData(dia, mes, ano)) {
-    return 0;
-  }
-  return 1;
+    return 1;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////

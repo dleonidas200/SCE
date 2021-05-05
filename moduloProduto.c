@@ -1,7 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
 ///								Módulo Aluno
 ///////////////////////////////////////////////////////////////////////////////
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -192,11 +191,11 @@ Produto* telaCadastrarProduto(void) {
 	printf("///           Data de Cadastro (dd/mm/aaaa):  ");
 	scanf("%[0-9/]", pro->cad);
 	getchar();
-	do {
-		printf("///           Data de Validade (dd/mm/aaaa):  ");
-		scanf("%[0-9/]", pro->val);
-		getchar();
-	} while (!validarVal(pro->val));
+	// do {
+	// 	printf("///           Data de Validade (dd/mm/aaaa):  ");
+	// 	scanf("%[0-9/]", pro->val);
+	// 	getchar();
+	// } while (!validarVal(pro->val));
 	pro->status = True;
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
@@ -205,7 +204,6 @@ Produto* telaCadastrarProduto(void) {
 	//delay(1);
   	return pro;
 }
-
 
 char* telaPesquisarProduto(void) {
 	char* codBarras;
@@ -353,7 +351,7 @@ void exibirProduto(Produto* pro) {
 		printf("Codigo de Barras: %s\n", pro->codBarras);
 		printf("Nome do produto: %s\n", pro->nome);
 		printf("Data de Cad: %s\n", pro->cad);
-		printf("Data de Validade: %s\n", pro->val);
+		// printf("Data de Validade: %s\n", pro->val);
 		printf("Status: %d\n", pro->status);
 	}
 	printf("\n\nTecle ENTER para continuar!\n\n");

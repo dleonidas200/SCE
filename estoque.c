@@ -1,17 +1,10 @@
-///////////////////////////////////////////////////////////////////////////////
-///             Universidade Federal do Rio Grande do Norte                 ///
-///                 Centro de Ensino Superior do Seridó                     ///
-///               Departamento de Computação e Tecnologia                   ///
-///                  Disciplina DCT1106 -- Programação                      ///
-///                  Projeto Sistema de Gestão Escolar                      ///
-///	           Developed by @dleonidas200 @MarlemM - Jan, 2021              ///
-///                Adapted of the  @flgorgonio - Jan, 2021                  ///
-///////////////////////////////////////////////////////////////////////////////
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include "moduloProduto.h"
+#include "moduloRealatorio.h"
+#include "moduloEntrada.h"
+#include "moduloSaida.h"
 #include "validador.h"
 
 /////////////////////////////////////////////////////////////////////////////// 
@@ -21,17 +14,11 @@
 char menuPrincipal(void);
 void moduloInformacoes(void);
 void telaSobre(void);
-
-
 void moduloRelatorio(void);
-void delay(int);
-
 
 ///////////////////////////////////////////////////////////////////////////////
 ///								Programa Principal
 ///////////////////////////////////////////////////////////////////////////////
-
-
 int main(void) {
 	char opcao;
 	do {
@@ -41,11 +28,17 @@ int main(void) {
 						break;
 			case '2': 	moduloInformacoes();
 						break;
+			case '3': 	moduloRelatorio();
+						break;
+			case '4':   moduloEntrada();
+						break;
+			case '5':   moduloSaida();
+						break;
+
 		} 		
 	} while (opcao != '0');
 	return 0;    
 }
-
 
 char menuPrincipal(void) {
 	char op;
@@ -71,6 +64,9 @@ char menuPrincipal(void) {
 	printf("///                                                                       ///\n");
 	printf("///           1. Modulo produto                                           ///\n");
 	printf("///           2. Informacoes sobre o sistema                              ///\n");
+	printf("///           3. Modulo Relatorios                                        ///\n");
+	printf("///           4. Modulo Entradas                                          ///\n");
+	printf("///           5. Modulo Saida                                             ///\n");
 	printf("///           0. Encerra o programa                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("///           Escolha a opcao desejada: ");
@@ -83,7 +79,6 @@ char menuPrincipal(void) {
 	delay(1);
 	return op;
 }
-
 
 void telaSobre(void) {
     limpaTela();
@@ -123,7 +118,6 @@ void telaSobre(void) {
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
 }
-
 
 void moduloInformacoes(void) {
 	// modulo em desenvolvimento
