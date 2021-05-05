@@ -1,5 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+
+#include "moduloEntrada.h"
+#include "moduloProduto.h"
 #include "moduloRealatorio.h"
 #include "validador.h"
 
@@ -8,14 +12,12 @@ void moduloRelatorio(void){
 	do {
 		opcao = menuRelatorio();
 		switch(opcao) {
-			case '1': 	//
-						break;
-			case '2': 	//
-						break;
-			case '3': 	//
-						break;
-			case '4': 	//
-						break;
+			case '1':
+				exibirTodasEntradas();
+					break;
+			case '2':
+				exibirEntradaEspecifica();
+					break;
 		} 		
 	} while (opcao != '0');
 }
@@ -27,20 +29,12 @@ char menuRelatorio(void) {
 	printf("///                                                                       ///\n");
 	printf("///          ===================================================          ///\n");
 	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
-	printf("///          = = = =   Escola de Idiomas Língua Solta    = = = =          ///\n");
+	printf("///          = = = =        Modulo Relatorio             = = = =          ///\n");
 	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
 	printf("///          ===================================================          ///\n");
-	printf("///                Developed by  @flgorgonio - Jan, 2021                  ///\n");
 	printf("///                                                                       ///\n");
-	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	printf("///                                                                       ///\n");
-	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-	printf("///           = = = = = = = =  Menu Relatório = = = = = = = =             ///\n");
-	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-	printf("///                                                                       ///\n");
-	printf("///           1. Listar Todos os Produtos                                 ///\n");
-	printf("///           2. Mostrar Quantidade Total de Itens                        ///\n");
-	printf("///           3. Listar todas as turmas em um determinado semestre        ///\n");
+	printf("///           1. Listar Todas as entradas                                 ///\n");
+	printf("///           2. Lista todas as ocorrencias de entrdas                    ///\n");
 	printf("///           0. Voltar ao menu anterior                                  ///\n");
 	printf("///                                                                       ///\n");
 	printf("///           Escolha a opção desejada: ");
@@ -52,4 +46,52 @@ char menuRelatorio(void) {
 	printf("\n");
 	delay(1);
 	return op;
+}
+void exibirTodasEntradas(){
+	FILE* fp;
+	Entrada* pro;
+
+	pro = (Entrada*) malloc(sizeof(Entrada));
+	fp = fopen("Entradas.dat", "rb");
+	if (fp != NULL) {
+		while(fread(pro, sizeof(Entrada), 1, fp)) {
+			printf("\n= = = Entrada Cadastrado = = =\n");
+			printf("Codigo de Barras: %s\n", pro->codBarras);
+			printf("Data de Entrada: %s\n", pro->datDentrada);
+			printf("Quntidade do Produto: %d\n",pro->quantidade);
+		}
+	}else{
+		printf("Não existe nenhum dado \n");
+	}
+	free(pro);
+	fclose(fp);
+	delay(5000);
+}
+void exibirEntradaEspecifica(){
+	char* cod = (char*) malloc(12*sizeof(char));
+	char* nome = (char*) malloc(51*sizeof(char));
+	printf("Insira o nome do produto: ");
+	scanf("%[a-z]",nome);
+	getchar();
+	cod = buscarcodPNome(nome);
+	FILE* fp;
+	Entrada* pro;
+	pro = (Entrada*) malloc(sizeof(Entrada));
+
+	fp = fopen("Entradas.dat", "rb");
+	if (fp != NULL) {
+		while(fread(pro, sizeof(Entrada), 1, fp)){
+			if(strcmp(pro->codBarras,cod)==0){
+				printf("\n= = = Entrada Cadastrado = = =\n");
+				printf("Codigo de Barras: %s\n", pro->codBarras);
+				printf("Data de Entrada: %s\n", pro->datDentrada);
+				printf("Quntidade do Produto: %d\n",pro->quantidade);	
+			}
+		}
+	}else{
+		printf("Não existe nenhum dado \n");
+	}
+	free(pro);
+	fclose(fp);
+	delay(5000);
 }

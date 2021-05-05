@@ -7,7 +7,6 @@ struct entrada {
   char datDentrada[12];
   int quantidade;
 };
-
 void moduloEntrada(void);
 char menuEntrada(void);
 void RelaizaEntrada(void);
@@ -19,6 +18,15 @@ void pesquisarEntrada(void);
 
 Entrada* buscarEntrada(char* codBarras);
 void exibirEntrada(Entrada* pro);
+
+void regravarEntrada(Entrada* pro);
+void atualizarEntrada(void);
+void excluirEntrada(void);
+char menuEntrada(void);
+void telaErroArquivoEntrada(void);
+char* telaAtualizarEntrada(void);
+char* telaExcluirEntrada(void);
+int existeEmEntrada(char* cod);
 
 
 

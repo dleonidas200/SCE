@@ -8,3 +8,6 @@ struct relatorio {
 };
  void moduloRelatorio(void);
  char menuRelatorio(void);
+ void exibirTodasEntradas(void);
+ 
+ void exibirEntradaEspecifica(void);

@@ -8,7 +8,6 @@ struct produto {
   char codBarras[12]; //entrada vai comparar com esse codBarra --
   char nome[51];
   char cad[11];       // data de cadastramento
-  //char val[12];       //data de balidade
   int status;
 };
 
@@ -31,3 +30,6 @@ void exibirProduto(Produto*);
 Produto* buscarProduto(char*);
 void exibirProduto(Produto*);
 void regravarProduto(Produto*);
+
+char* buscarcodPNome(char*);
+Produto* telaAttProduto(Produto*);

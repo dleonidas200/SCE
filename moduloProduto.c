@@ -1,6 +1,3 @@
-///////////////////////////////////////////////////////////////////////////////
-///								Módulo Aluno
-///////////////////////////////////////////////////////////////////////////////
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -26,15 +23,12 @@ void moduloProduto(void) {
 	} while (opcao != '0');
 }
 
-
 void cadastrarProduto(void) {
 	Produto *pro;
-
 	pro = telaCadastrarProduto();
 	gravarProduto(pro);
 	free(pro);
 }
-
 
 void pesquisarProduto(void) {
 	Produto* pro;
@@ -57,17 +51,49 @@ void atualizarProduto(void) {
 	if (pro == NULL) {
     	printf("\n\nProduto não encontrado!\n\n");
   	} else {
-		  pro = telaCadastrarProduto();
+		  pro = telaAttProduto(pro);
 		  strcpy(pro->codBarras, codBarras);
 		  regravarProduto(pro);
-		  // Outra opção:
-		  // excluirProduto(codBarras);
-		  // gravarProduto(pro);
 		  free(pro);
 	}
 	free(codBarras);
 }
-
+Produto* telaAttProduto(Produto *pro){
+	limpaTela();
+	printf("\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///        ===================================================            ///\n");
+	printf("///        = = = = = = = = = = = = = = = = = = = = = = = = = =            ///\n");
+	printf("///        = = = =   Sistema de Controle de Estoque    = = = =            ///\n");
+	printf("///        = = = = = = = = = = = = = = = = = = = = = = = = = =            ///\n");
+	printf("///        ===================================================            ///\n");
+	printf("///          Developed by @dleonidas200 @MarlemM - Jan, 2021              ///\n");
+	printf("///        ===================================================            ///\n");
+	printf("///              Adapted of the  @flgorgonio - Jan, 2021                  ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+	printf("///           = = = = = = = = Atualiza Produto = = = = = = =             ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+	printf("///                                                                       ///\n");
+	printf("///           Nome do produto: ");
+	scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", pro->nome);
+	getchar();
+	do {
+		printf("///           Data de Cadastro (dd/mm/aaaa):  ");
+		scanf("%[0-9/]", pro->cad);
+		getchar();
+	} while (!validarVal(pro->cad));
+	pro->status = True;
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("\n");
+	//delay(1);
+  	return pro;
+}
 
 void excluirProduto(void) {
 	Produto* pro;
@@ -85,7 +111,6 @@ void excluirProduto(void) {
 	}
 	free(codBarras);
 }
-
 
 char menuProduto(void) {
 	char op;
@@ -115,13 +140,12 @@ char menuProduto(void) {
 	printf("///           4. Excluir um produto do sistema                            ///\n");
 	printf("///           0. Voltar ao menu anterior                                  ///\n");
 	printf("///                                                                       ///\n");
-	printf("///           Escolha a opção desejada: ");
-	scanf("%c", &op);
-	getchar();
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	printf("\n");
+	printf("///           Escolha a opção desejada: ");
+	scanf("%c", &op);
+	getchar();
 	delay(1);
 	return op;
 }
@@ -188,14 +212,11 @@ Produto* telaCadastrarProduto(void) {
 	printf("///           Nome do produto: ");
 	scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", pro->nome);
 	getchar();
-	printf("///           Data de Cadastro (dd/mm/aaaa):  ");
-	scanf("%[0-9/]", pro->cad);
-	getchar();
-	// do {
-	// 	printf("///           Data de Validade (dd/mm/aaaa):  ");
-	// 	scanf("%[0-9/]", pro->val);
-	// 	getchar();
-	// } while (!validarVal(pro->val));
+	do {
+		printf("///           Data de Cadastro (dd/mm/aaaa):  ");
+		scanf("%[0-9/]", pro->cad);
+		getchar();
+	} while (!validarVal(pro->cad));
 	pro->status = True;
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
@@ -228,13 +249,12 @@ char* telaPesquisarProduto(void) {
 	printf("///           = = = = = = = = Pesquisar Produto = = = = = = =             ///\n");
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
 	printf("///                                                                       ///\n");
-	printf("///           Informe o codigo de barras do produto (apenas números): ");
-	scanf("%[0-9]", codBarras);
-	getchar();
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	printf("\n");
+	printf("///           Informe o codigo de barras do produto (apenas números): ");
+	scanf("%[0-9]", codBarras);
+	getchar();
 	delay(1);
   	return codBarras;
 }
@@ -263,13 +283,12 @@ char* telaAtualizarProduto(void) {
 	printf("///           = = = = = = = = Atualizar Produto = = = = = = =             ///\n");
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
 	printf("///                                                                       ///\n");
-	printf("///           Informe o codigo de barras do produto (apenas números): ");
-	scanf("%[0-9]", codBarras);
-	getchar();
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	printf("\n");
+	printf("///           Informe o codigo de barras do produto (apenas números): ");
+	scanf("%[0-9]", codBarras);
+	getchar();
 	delay(1);
   	return codBarras;
 }
@@ -298,22 +317,20 @@ char* telaExcluirProduto(void) {
 	printf("///           = = = = = = = =  Excluir Produto  = = = = = = =             ///\n");
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
 	printf("///                                                                       ///\n");
-	printf("///           Informe o codigo de barras do produto (apenas números): ");
-	scanf("%[0-9]", codBarras);
-	getchar();
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	printf("\n");
+	printf("///           Informe o codigo de barras do produto (apenas números): ");
+	scanf("%[0-9]", codBarras);
+	getchar();
 	delay(1);
 	return codBarras;
 }
 
-
 void gravarProduto(Produto* pro) {
 	FILE* fp;
 
-	fp = fopen("produtos.txt", "ab");
+	fp = fopen("produtos.dat", "ab");
 	if (fp == NULL) {
 		telaErroArquivoProduto();
 	}
@@ -327,7 +344,7 @@ Produto* buscarProduto(char* codBarras) {
 	Produto* pro;
 
 	pro = (Produto*) malloc(sizeof(Produto));
-	fp = fopen("produtos.txt", "rb");
+	fp = fopen("produtos.dat", "rb");
 	if (fp == NULL) {
 		telaErroArquivoProduto();
 	}
@@ -346,12 +363,12 @@ void exibirProduto(Produto* pro) {
 
 	if (pro == NULL) {
 		printf("\n= = = Produto Inexistente = = =\n");
-	} else {
+	} 
+	else if(pro->status == 1) {                                                               //#erro01
 		printf("\n= = = Produto Cadastrado = = =\n");
 		printf("Codigo de Barras: %s\n", pro->codBarras);
 		printf("Nome do produto: %s\n", pro->nome);
 		printf("Data de Cad: %s\n", pro->cad);
-		// printf("Data de Validade: %s\n", pro->val);
 		printf("Status: %d\n", pro->status);
 	}
 	printf("\n\nTecle ENTER para continuar!\n\n");
@@ -365,21 +382,36 @@ void regravarProduto(Produto* pro) {
 	Produto* proLido;
 
 	proLido = (Produto*) malloc(sizeof(Produto));
-	fp = fopen("produtos.txt", "r+b");
+	fp = fopen("produtos.dat", "r+b");
 	if (fp == NULL) {
 		telaErroArquivoProduto();
 	}
-	// while(!feof(fp)) {
 	achou = False;
 	while(fread(proLido, sizeof(Produto), 1, fp) && !achou) {
-		//fread(proLido, sizeof(Produto), 1, fp);
 		if (strcmp(proLido->codBarras, pro->codBarras) == 0) {
 			achou = True;
 			fseek(fp, -1*sizeof(Produto), SEEK_CUR);
         	fwrite(pro, sizeof(Produto), 1, fp);
-			//break;
 		}
 	}
 	fclose(fp);
 	free(proLido);
+}
+
+char* buscarcodPNome(char* nome) {
+	FILE* fp;
+	Produto* pro;
+	pro = (Produto*) malloc(sizeof(Produto));
+	fp = fopen("produtos.dat", "rb");
+	if (fp == NULL) {
+		telaErroArquivoProduto();
+	}
+	while(fread(pro, sizeof(Produto), 1, fp)) {
+		if ((strcmp(pro->nome, nome) == 0) && (pro->status == True)) {
+			fclose(fp);
+			return pro->codBarras;
+		}
+	}
+	fclose(fp);
+	return NULL;
 }

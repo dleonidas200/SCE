@@ -24,25 +24,27 @@ int main(void) {
 	do {
 		opcao = menuPrincipal();
 		switch(opcao) {
-			case '1': 	moduloProduto();
-						break;
-			case '2': 	moduloInformacoes();
-						break;
-			case '3': 	moduloRelatorio();
-						break;
-			case '4':   moduloEntrada();
-						break;
-			case '5':   moduloSaida();
-						break;
-
+			case '1': 
+				moduloProduto();
+				break;
+			case '2':  
+			 	moduloEntrada();
+				break;
+			case '3':  
+				moduloSaida();
+				break;
+			case '4': 
+				moduloRelatorio();
+				break;
+			case '5': 	
+				moduloInformacoes();		
+			break;
 		} 		
 	} while (opcao != '0');
 	return 0;    
 }
-
 char menuPrincipal(void) {
 	char op;
-    //limpaTela();
 	limpaTela();
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -62,20 +64,19 @@ char menuPrincipal(void) {
 	printf("///           = = = = = = = =  Menu Principal = = = = = = = =             ///\n");
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
 	printf("///                                                                       ///\n");
-	printf("///           1. Modulo produto                                           ///\n");
-	printf("///           2. Informacoes sobre o sistema                              ///\n");
-	printf("///           3. Modulo Relatorios                                        ///\n");
-	printf("///           4. Modulo Entradas                                          ///\n");
-	printf("///           5. Modulo Saida                                             ///\n");
+	printf("///           1. Modulo Produto                                           ///\n");
+	printf("///           2. Modulo entrada                                           ///\n");
+	printf("///           3. Modulo Saida                                             ///\n");
+	printf("///           4. Modulo Relatorios                                        ///\n");
+	printf("///           5. Modulo Informação                                        ///\n");
 	printf("///           0. Encerra o programa                                       ///\n");
 	printf("///                                                                       ///\n");
-	printf("///           Escolha a opcao desejada: ");
-	scanf("%c", &op);
-	getchar();
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	printf("\n");
+	printf("///           Escolha a opcao desejada: ");
+	scanf("%c", &op);
+	getchar();
 	delay(1);
 	return op;
 }
@@ -89,14 +90,13 @@ void telaSobre(void) {
 	printf("///                  Centro de Ensino Superior do Seridó                  ///\n");
 	printf("///                Departamento de Computação e Tecnologia                ///\n");
 	printf("///                   Disciplina DCT1106 -- Programação                   ///\n");
-	printf("///                   Projeto Sistema de Gestão Escolar                   ///\n");
-	printf("///                 Developed by  @flgorgonio - Jan, 2021                 ///\n");
+	printf("///                   Projeto Sistema de Gestão se Estoque                ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
 	printf("///          =====================================================        ///\n");
 	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = = =        ///\n");
-	printf("///          =  SIG-Inventory-Um Sistema de Controle de Estoques =        ///\n");
+	printf("///          =  SCE-Inventory-Um Sistema de Controle de Estoques =        ///\n");
 	printf("///          = = = = # Projeto adapted of the @flgorgonio  = = = =        ///\n");
 	printf("///          =================================================== =        ///\n");
 	printf("///                                                                       ///\n");

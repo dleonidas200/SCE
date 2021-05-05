@@ -24,6 +24,7 @@ void moduloEntrada(void){
 	} while (opcao != '0');
 
 }
+
 char menuEntrada(void){
     char op;
     limpaTela();
@@ -40,39 +41,36 @@ char menuEntrada(void){
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-	printf("///           = = = = = = = =  Menu Relatório = = = = = = = =             ///\n");
+	printf("///           = = = = = = = =  Modulo Entrda  = = = = = = = =             ///\n");
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
 	printf("///                                                                       ///\n");
 	printf("///           1. Realizar entrada de Produto                              ///\n");
-	printf("///           2. Pesquisar entrada de Produto                              ///\n");
+	printf("///           2. Pesquisar entrada de Produto                             ///\n");
 	printf("///           0. Voltar ao menu anterior                                  ///\n");
 	printf("///                                                                       ///\n");
-	printf("///           Escolha a opção desejada: ");
-	scanf("%c", &op);
-	getchar();
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///           Escolha a opção desejada: ");
+	scanf("%c", &op);
+	getchar();
 	printf("\n");
 	delay(1);
 	return op;
 }
-//--------------------------------------------------------
-// produto arroz -> 1111111111111
-// verificar  arroz -> 1111111111111 acionar quantidade
-// 
-//--------------------------------------------------------
+
 void RelaizaEntrada(void) {
 	char codBarras[12];
 	Entrada *pro;
-	printf("Inserir o Codigo de barras do Produto: ");
-	scanf("%[0-9^\n]",codBarras);
-	//getchar();
-	//pedir o codigo de barra
-	//verifica se existe
+	printf("Informe o codigo de barras do produto (apenas números): ");
+	scanf("%[0-9]",codBarras);
+	getchar();                            
+	printf("\n");
 	if(existeEmProdutos(codBarras)==1){
 		pro=telaCadastrarEntrada(); 
 		gravarEntrada(pro);
+	}else{
+		printf("Este codigo de barras não pertence a nenhum produto \n");
 	}
 	free(pro);
 }
@@ -118,8 +116,15 @@ Entrada* telaCadastrarEntrada(void) {
 		getchar();
 	} while (!validarVal(pro->val));
 	do {
+		printf("///           Data de Entrada (dd/mm/aaaa):  ");
+		scanf("%[0-9/]", pro->datDentrada);
+		getchar();
+	} while (!validarVal(pro->datDentrada));
+
+	do {
 		printf("///           Informe a Quantidade do Produto:  ");
 		scanf("%d",&pro->quantidade);
+		getchar();         
 	} while (pro->quantidade<0);
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
@@ -175,7 +180,7 @@ char* telaPesquisarEntrada(void) {
 void gravarEntrada(Entrada* pro) {
 	FILE* fp;
 
-	fp = fopen("Entradas.txt", "ab");
+	fp = fopen("Entradas.dat", "ab");
 	if (fp == NULL) {
 		printf("Erro na gravação de arquivo \n");
 	}
@@ -188,7 +193,7 @@ Entrada* buscarEntrada(char* codBarras) {
 	Entrada* pro;
 
 	pro = (Entrada*) malloc(sizeof(Entrada));
-	fp = fopen("Entradas.txt", "rb");
+	fp = fopen("Entradas.dat", "rb");
 	if (fp == NULL) {
 		printf("Não existe nenhum dado \n");
 	}
@@ -210,216 +215,164 @@ void exibirEntrada(Entrada* pro) {
 		printf("Data de Entrada: %s\n", pro->datDentrada);
 		printf("Quntidade do Produto: %d\n",pro->quantidade);
 	}
-	printf("\n\nTecle ENTER para continuar!\n\n");
-	getchar();
+	// printf("\n\nTecle ENTER para continuar!\n\n");
+	// getchar();
 }
 
+void regravarEntrada(Entrada* pro) {
+	int achou;
+	FILE* fp;
+	Entrada* proLido;
 
+	proLido = (Entrada*) malloc(sizeof(Entrada));
+	fp = fopen("Entradas.dat", "r+b");
+	if (fp == NULL) {
+		telaErroArquivoEntrada();
+	}
+	// while(!feof(fp)) {
+	achou = False;
+	while(fread(proLido, sizeof(Entrada), 1, fp) && !achou) {
+		//fread(proLido, sizeof(Entrada), 1, fp);
+		if (strcmp(proLido->codBarras, pro->codBarras) == 0) {
+			achou = True;
+			fseek(fp, -1*sizeof(Entrada), SEEK_CUR);
+        	fwrite(pro, sizeof(Entrada), 1, fp);
+			//break;
+		}
+	}
+	fclose(fp);
+	free(proLido);
+}
 
+void atualizarEntrada(void) {
+	Entrada* pro;
+	char* codBarras;
 
-// void regravarEntrada(Produto* pro) {
-// 	int achou;
-// 	FILE* fp;
-// 	Produto* proLido;
+	codBarras = telaAtualizarEntrada();
+	pro = buscarEntrada(codBarras);
+	if (pro == NULL) {
+    	printf("\n\nEntrada não encontrado!\n\n");
+  	} else {
+		  pro = telaCadastrarEntrada();
+		  strcpy(pro->codBarras, codBarras);
+		  regravarEntrada(pro);
+		  // Outra opção:
+		  // excluirEntrada(codBarras);
+		  // gravarEntrada(pro);
+		  free(pro);
+	}
+	free(codBarras);
+}
 
-// 	proLido = (Produto*) malloc(sizeof(Produto));
-// 	fp = fopen("produtos.txt", "r+b");
-// 	if (fp == NULL) {
-// 		telaErroArquivoProduto();
-// 	}
-// 	// while(!feof(fp)) {
-// 	achou = False;
-// 	while(fread(proLido, sizeof(Produto), 1, fp) && !achou) {
-// 		//fread(proLido, sizeof(Produto), 1, fp);
-// 		if (strcmp(proLido->codBarras, pro->codBarras) == 0) {
-// 			achou = True;
-// 			fseek(fp, -1*sizeof(Produto), SEEK_CUR);
-//         	fwrite(pro, sizeof(Produto), 1, fp);
-// 			//break;
-// 		}
-// 	}
-// 	fclose(fp);
-// 	free(proLido);
-// }
+void excluirEntrada(void) {
+	Entrada* pro;
+	char *codBarras;
 
+	codBarras = telaExcluirEntrada();
+	pro = (Entrada*) malloc(sizeof(Entrada));
+	pro = buscarEntrada(codBarras);
+	if (pro == NULL) {
+    	printf("\n\nEntrada não encontrado!\n\n");
+  	} else {
+		  regravarEntrada(pro);
+		  free(pro);
+	}
+	free(codBarras);
+}
+void telaErroArquivoEntrada(void) {
+	limpaTela();
+	printf("\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///        ===================================================            ///\n");
+	printf("///        = = = = = = = = = = = = = = = = = = = = = = = = = =            ///\n");
+	printf("///        = = = =   Sistema de Controle de Estoque    = = = =            ///\n");
+	printf("///        = = = = = = = = = = = = = = = = = = = = = = = = = =            ///\n");
+	printf("///        ===================================================            ///\n");
+	printf("///          Developed by @dleonidas200 @MarlemM - Jan, 2021              ///\n");
+	printf("///        ===================================================            ///\n");
+	printf("///              Adapted of the  @flgorgonio - Jan, 2021                  ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+	printf("///           = = = = = = =  Ops! Ocorreu em erro = = = = = =             ///\n");
+	printf("///           = = =  Não foi possível acessar o arquivo = = =             ///\n");
+	printf("///           = = = = com informações sobre os Entradas = = =             ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+	printf("///           = =  Pedimos desculpas pelos inconvenientes = =             ///\n");
+	printf("///           = = =  mas este programa será finalizado! = = =             ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+	printf("///                                                                       ///\n");
+	printf("\n\nTecle ENTER para continuar!\n\n");
+	getchar();
+	exit(1);
+}
 
+char* telaAtualizarEntrada(void) {
+	char* codBarras;
 
+	codBarras = (char*) malloc(12*sizeof(char));
+	limpaTela();
+	printf("\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///        ===================================================            ///\n");
+	printf("///        = = = = = = = = = = = = = = = = = = = = = = = = = =            ///\n");
+	printf("///        = = = =   Sistema de Controle de Estoque    = = = =            ///\n");
+	printf("///        = = = = = = = = = = = = = = = = = = = = = = = = = =            ///\n");
+	printf("///        ===================================================            ///\n");
+	printf("///          Developed by @dleonidas200 @MarlemM - Jan, 2021              ///\n");
+	printf("///        ===================================================            ///\n");
+	printf("///              Adapted of the  @flgorgonio - Jan, 2021                  ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+	printf("///           = = = = = = = = Atualizar Entrada = = = = = = =             ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+	printf("///                                                                       ///\n");
+	printf("///           Informe o codigo de barras do Entrada (apenas números): ");
+	scanf("%[0-9]", codBarras);
+	getchar();
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("\n");
+	delay(1);
+  	return codBarras;
+}
 
-// void atualizarEntrada(void) {
-// 	Produto* pro;
-// 	char* codBarras;
+char* telaExcluirEntrada(void) {
+	char *codBarras;
 
-// 	codBarras = telaAtualizarProduto();
-// 	pro = buscarProduto(codBarras);
-// 	if (pro == NULL) {
-//     	printf("\n\nProduto não encontrado!\n\n");
-//   	} else {
-// 		  pro = telaCadastrarEntrada();
-// 		  strcpy(pro->codBarras, codBarras);
-// 		  regravarEntrada(pro);
-// 		  // Outra opção:
-// 		  // excluirProduto(codBarras);
-// 		  // gravarEntrada(pro);
-// 		  free(pro);
-// 	}
-// 	free(codBarras);
-// }
-
-
-// void excluirProduto(void) {
-// 	Produto* pro;
-// 	char *codBarras;
-
-// 	codBarras = telaExcluirProduto();
-// 	pro = (Produto*) malloc(sizeof(Produto));
-// 	pro = buscarProduto(codBarras);
-// 	if (pro == NULL) {
-//     	printf("\n\nProduto não encontrado!\n\n");
-//   	} else {
-// 		  pro->status = False;
-// 		  regravarEntrada(pro);
-// 		  free(pro);
-// 	}
-// 	free(codBarras);
-// }
-
-
-// char menuProduto(void) {
-// 	char op;
-	
-// 	limpaTela();
-// 	printf("\n");
-// 	printf("/////////////////////////////////////////////////////////////////////////////\n");
-// 	printf("///                                                                       ///\n");
-// 	printf("///        ===================================================            ///\n");
-// 	printf("///        = = = = = = = = = = = = = = = = = = = = = = = = = =            ///\n");
-// 	printf("///        = = = =   Sistema de Controle de Estoque    = = = =            ///\n");
-// 	printf("///        = = = = = = = = = = = = = = = = = = = = = = = = = =            ///\n");
-// 	printf("///        ===================================================            ///\n");
-// 	printf("///          Developed by @dleonidas200 @MarlemM - Jan, 2021              ///\n");
-// 	printf("///        ===================================================            ///\n");
-// 	printf("///              Adapted of the  @flgorgonio - Jan, 2021                  ///\n");
-// 	printf("///                                                                       ///\n");
-// 	printf("/////////////////////////////////////////////////////////////////////////////\n");
-// 	printf("///                                                                       ///\n");
-// 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-// 	printf("///           = = = = = = = = =  Menu Produto = = = = = = = = =           ///\n");
-// 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-// 	printf("///                                                                       ///\n");
-// 	printf("///           1. Cadastrar um novo produto                                ///\n");
-// 	printf("///           2. Pesquisar os dados de um produto                         ///\n");
-// 	printf("///           3. Atualizar o cadastro de um produto                       ///\n");
-// 	printf("///           4. Excluir um produto do sistema                            ///\n");
-// 	printf("///           0. Voltar ao menu anterior                                  ///\n");
-// 	printf("///                                                                       ///\n");
-// 	printf("///           Escolha a opção desejada: ");
-// 	scanf("%c", &op);
-// 	getchar();
-// 	printf("///                                                                       ///\n");
-// 	printf("///                                                                       ///\n");
-// 	printf("/////////////////////////////////////////////////////////////////////////////\n");
-// 	printf("\n");
-// 	delay(1);
-// 	return op;
-// }
-
-// void telaErroArquivoProduto(void) {
-// 	limpaTela();
-// 	printf("\n");
-// 	printf("/////////////////////////////////////////////////////////////////////////////\n");
-// 	printf("///                                                                       ///\n");
-// 	printf("///        ===================================================            ///\n");
-// 	printf("///        = = = = = = = = = = = = = = = = = = = = = = = = = =            ///\n");
-// 	printf("///        = = = =   Sistema de Controle de Estoque    = = = =            ///\n");
-// 	printf("///        = = = = = = = = = = = = = = = = = = = = = = = = = =            ///\n");
-// 	printf("///        ===================================================            ///\n");
-// 	printf("///          Developed by @dleonidas200 @MarlemM - Jan, 2021              ///\n");
-// 	printf("///        ===================================================            ///\n");
-// 	printf("///              Adapted of the  @flgorgonio - Jan, 2021                  ///\n");
-// 	printf("///                                                                       ///\n");
-// 	printf("/////////////////////////////////////////////////////////////////////////////\n");
-// 	printf("///                                                                       ///\n");
-// 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-// 	printf("///           = = = = = = =  Ops! Ocorreu em erro = = = = = =             ///\n");
-// 	printf("///           = = =  Não foi possível acessar o arquivo = = =             ///\n");
-// 	printf("///           = = = = com informações sobre os produtos = = =             ///\n");
-// 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-// 	printf("///           = =  Pedimos desculpas pelos inconvenientes = =             ///\n");
-// 	printf("///           = = =  mas este programa será finalizado! = = =             ///\n");
-// 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-// 	printf("///                                                                       ///\n");
-// 	printf("\n\nTecle ENTER para continuar!\n\n");
-// 	getchar();
-// 	exit(1);
-// }
-
-
-
-// char* telaAtualizarProduto(void) {
-// 	char* codBarras;
-
-// 	codBarras = (char*) malloc(12*sizeof(char));
-// 	limpaTela();
-// 	printf("\n");
-// 	printf("/////////////////////////////////////////////////////////////////////////////\n");
-// 	printf("///                                                                       ///\n");
-// 	printf("///        ===================================================            ///\n");
-// 	printf("///        = = = = = = = = = = = = = = = = = = = = = = = = = =            ///\n");
-// 	printf("///        = = = =   Sistema de Controle de Estoque    = = = =            ///\n");
-// 	printf("///        = = = = = = = = = = = = = = = = = = = = = = = = = =            ///\n");
-// 	printf("///        ===================================================            ///\n");
-// 	printf("///          Developed by @dleonidas200 @MarlemM - Jan, 2021              ///\n");
-// 	printf("///        ===================================================            ///\n");
-// 	printf("///              Adapted of the  @flgorgonio - Jan, 2021                  ///\n");
-// 	printf("///                                                                       ///\n");
-// 	printf("/////////////////////////////////////////////////////////////////////////////\n");
-// 	printf("///                                                                       ///\n");
-// 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-// 	printf("///           = = = = = = = = Atualizar Produto = = = = = = =             ///\n");
-// 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-// 	printf("///                                                                       ///\n");
-// 	printf("///           Informe o codigo de barras do produto (apenas números): ");
-// 	scanf("%[0-9]", codBarras);
-// 	getchar();
-// 	printf("///                                                                       ///\n");
-// 	printf("///                                                                       ///\n");
-// 	printf("/////////////////////////////////////////////////////////////////////////////\n");
-// 	printf("\n");
-// 	delay(1);
-//   	return codBarras;
-// }
-
-
-// char* telaExcluirProduto(void) {
-// 	char *codBarras;
-
-// 	codBarras = (char*) malloc(12*sizeof(char));
-//   	limpaTela();
-// 	printf("\n");
-// 	printf("/////////////////////////////////////////////////////////////////////////////\n");
-// 	printf("///                                                                       ///\n");
-// 	printf("///        ===================================================            ///\n");
-// 	printf("///        = = = = = = = = = = = = = = = = = = = = = = = = = =            ///\n");
-// 	printf("///        = = = =   Sistema de Controle de Estoque    = = = =            ///\n");
-// 	printf("///        = = = = = = = = = = = = = = = = = = = = = = = = = =            ///\n");
-// 	printf("///        ===================================================            ///\n");
-// 	printf("///          Developed by @dleonidas200 @MarlemM - Jan, 2021              ///\n");
-// 	printf("///        ===================================================            ///\n");
-// 	printf("///              Adapted of the  @flgorgonio - Jan, 2021                  ///\n");
-// 	printf("///                                                                       ///\n");
-// 	printf("/////////////////////////////////////////////////////////////////////////////\n");
-// 	printf("///                                                                       ///\n");
-// 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-// 	printf("///           = = = = = = = =  Excluir Produto  = = = = = = =             ///\n");
-// 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-// 	printf("///                                                                       ///\n");
-// 	printf("///           Informe o codigo de barras do produto (apenas números): ");
-// 	scanf("%[0-9]", codBarras);
-// 	getchar();
-// 	printf("///                                                                       ///\n");
-// 	printf("///                                                                       ///\n");
-// 	printf("/////////////////////////////////////////////////////////////////////////////\n");
-// 	printf("\n");
-// 	delay(1);
-// 	return codBarras;
-// }
+	codBarras = (char*) malloc(12*sizeof(char));
+  	limpaTela();
+	printf("\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///        ===================================================            ///\n");
+	printf("///        = = = = = = = = = = = = = = = = = = = = = = = = = =            ///\n");
+	printf("///        = = = =   Sistema de Controle de Estoque    = = = =            ///\n");
+	printf("///        = = = = = = = = = = = = = = = = = = = = = = = = = =            ///\n");
+	printf("///        ===================================================            ///\n");
+	printf("///          Developed by @dleonidas200 @MarlemM - Jan, 2021              ///\n");
+	printf("///        ===================================================            ///\n");
+	printf("///              Adapted of the  @flgorgonio - Jan, 2021                  ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+	printf("///           = = = = = = = =  Excluir Entrada  = = = = = = =             ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+	printf("///                                                                       ///\n");
+	printf("///           Informe o codigo de barras do Entrada (apenas números): ");
+	scanf("%[0-9]", codBarras);
+	getchar();
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("\n");
+	delay(1);
+	return codBarras;
+}

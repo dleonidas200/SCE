@@ -1,10 +1,8 @@
-///////////////////////////////////////////////////////////////////////////////
-///								Módulo Utilitário
-///////////////////////////////////////////////////////////////////////////////
-
+#include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
 #include <string.h>
+#include "moduloProduto.h"
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -27,7 +25,6 @@ void limpaTela(void) {
     // limpa a tela, Linux, Mac e Windows
   }
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////
 /// Retorna 1 se o caractere recebido for um dígito (entre 0 e 9)
@@ -139,7 +136,7 @@ int validarData(char* data) {//   011220
 /// Retorna 1 se string recebido corresponder a uma data de validade válida
 /// (apenas dígitos) ou retorna 0 caso contrário
 ///
-int validarVal(char* val) {// 01/12/2020
+int validarVal(char* val) {//12/05/2021
     char dia[3]={val[0],val[1]};
     char mes[3]={val[3],val[4]};
     char ano[5]={val[6],val[7],val[8],val[9]};
@@ -148,7 +145,10 @@ int validarVal(char* val) {// 01/12/2020
     mesInt = atoi(mes);
     anoInt = atoi(ano);
     int ehValido = 0;
-    if(ehData(diaInt,mesInt,anoInt)!=1){
+    if(anoInt<2021 ||(val[2]!='/')||(val[5]!='/')){
+      return 0;
+    }
+    else if(ehData(diaInt,mesInt,anoInt)!=1){
       return 0;
     }
     return 1;
@@ -160,6 +160,22 @@ int validarVal(char* val) {// 01/12/2020
 ///
 int validarCodBarras(char* codBarras) {
   int tam;
+  
+  FILE* fp;
+	Produto* pro;
+	pro = (Produto*) malloc(sizeof(Produto));
+	fp = fopen("produtos.dat","rb");
+	if (fp == NULL) {
+		return 1;
+	}
+	while(fread(pro, sizeof(Produto), 1, fp)) {
+		if ((strcmp(pro->codBarras, codBarras) == 0) && (pro->status == 1)) {
+			fclose(fp);
+			return 0;
+		}
+	}
+	fclose(fp);
+
   tam = strlen(codBarras);
   
   for (int i = 0; i < tam; i++) {
@@ -169,4 +185,3 @@ int validarCodBarras(char* codBarras) {
   }
   return 1;
 }
-
