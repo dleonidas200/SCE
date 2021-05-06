@@ -51,8 +51,8 @@ void realizarSaida(void){
 	free(codigo);
 }
 char* telaUnformarSaida(void) {
-	char *nome;
-	nome = (char*)malloc(51*sizeof(char));
+	char *codBarras;
+	codBarras = (char*)malloc(12*sizeof(char));
 	limpaTela();
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -68,20 +68,20 @@ char* telaUnformarSaida(void) {
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-	printf("///           = = = = = = = = Relalizar Entrada = = = = = = =             ///\n");
+	printf("///           = = = = = = = = Relalizar Saida   = = = = = = =             ///\n");
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
 	printf("///                                                                       ///\n");
 	do {
 		printf("///           Informe o codigo de barras do Produto: ");
-		scanf("%[^\n]",nome);
+		scanf("%[^\n]",codBarras);
 		getchar();
-	} while (!validarNome(nome));
+	} while (!validarCodBarras(codBarras));
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
 	//delay(1);
-  	return nome;
+  	return codBarras;
 }
 int fazerRetirada(char* cod){
 	FILE* fp;
