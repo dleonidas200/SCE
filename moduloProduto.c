@@ -49,7 +49,7 @@ void atualizarProduto(void) {
 	codBarras = telaAtualizarProduto();
 	pro = buscarProduto(codBarras);
 	if (pro == NULL) {
-    	printf("\n\nProduto não encontrado!\n\n");
+    	printf("\n\nProduto nao encontrado!\n\n");
   	} else {
 		  pro = telaAttProduto(pro);
 		  strcpy(pro->codBarras, codBarras);
@@ -165,7 +165,7 @@ void telaErroArquivoProduto(void) {
 	printf("///                                                                       ///\n");
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
 	printf("///           = = = = = = =  Ops! Ocorreu em erro = = = = = =             ///\n");
-	printf("///           = = =  Nao foi possível acessar o arquivo = = =             ///\n");
+	printf("///           = = =  Nao foi possivel acessar o arquivo = = =             ///\n");
 	printf("///           = = = = com informações sobre os produtos = = =             ///\n");
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
 	printf("///           = =  Pedimos desculpas pelos inconvenientes = =             ///\n");

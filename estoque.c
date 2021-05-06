@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include "moduloProduto.h"
-#include "moduloRealatorio.h"
+#include "moduloRelatorio.h"
 #include "moduloEntrada.h"
 #include "moduloSaida.h"
 #include "validador.h"
@@ -67,7 +67,7 @@ char menuPrincipal(void) {
 	printf("///           2. Modulo entrada                                           ///\n");
 	printf("///           3. Modulo Saida                                             ///\n");
 	printf("///           4. Modulo Relatorios                                        ///\n");
-	printf("///           5. Modulo Informação                                        ///\n");
+	printf("///           5. Modulo Informacao                                        ///\n");
 	printf("///           0. Encerra o programa                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
@@ -105,12 +105,12 @@ void telaSobre(void) {
 	printf("///   funções com cadastrar produtos, listar os produtos do seu estoque   ///\n");
 	printf("///   que serve para, gerenciar seu estoque de produtos. Gerenciar        ///\n");
 	printf("///   estoques de maneira eficiente, sem a ajuda de um sistema            ///\n");
-	printf("///   automatizado, eh algo difícil para as pequenas empresas e impossível ///\n");
+	printf("///   automatizado, eh algo dificil para as pequenas empresas e impossivel///\n");
 	printf("///   para as grandes. O presente projeto tem como objetivo propor um     ///\n");
-	printf("///   software que ofereça funcionalidades básicas relacionadas ao        ///\n");
-	printf("///   controle de inventário de uma empresa, visando facilitar a          ///\n"); 
+	printf("///   software que ofereça funcionalidades basicas relacionadas ao        ///\n");
+	printf("///   controle de inventario de uma empresa, visando facilitar a          ///\n"); 
 	printf("///   administração de estoques de produtos dos mais diversos tipos.      ///\n");
-	printf("///   Tornando assim capaz a introdução das mais simples empresas poder   ///\n");
+	printf("///   Tornando assim capaz a introducao das mais simples empresas poder   ///\n");
 	printf("///   aderir o sistema de forma simples e eficaz.                         ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");

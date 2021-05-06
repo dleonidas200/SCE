@@ -11,7 +11,7 @@ void moduloEntrada(void){
 		opcao = menuEntrada();
 		switch(opcao) {
 			case '1': 	
-				RelaizaEntrada();
+				RealizaEntrada();
 				break;
 			case '2': 	
 				pesquisarEntrada();
@@ -43,12 +43,13 @@ char menuEntrada(void){
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-	printf("///           = = = = = = = =  Modulo Entrada  = = = = = = = =             ///\n");
+	printf("///           = = = = = = =   Modulo Entrada  = = = = = = = =             ///\n");
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
 	printf("///                                                                       ///\n");
 	printf("///           1. Realizar entrada de Produto                              ///\n");
 	printf("///           2. Pesquisar entrada de Produto                             ///\n");
 	printf("///           3. Atualizar entrada de Produto                             ///\n");
+	printf("///           4. Excluir entrada de Produto                               ///\n");
 	printf("///           0. Voltar ao menu anterior                                  ///\n");
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
@@ -62,7 +63,7 @@ char menuEntrada(void){
 	return op;
 }
 
-void RelaizaEntrada(void) {
+void RealizaEntrada(void) {
 	char codBarras[12];
 	Entrada *pro;
 	printf("Informe o codigo de barras do produto (apenas numeros): ");
@@ -255,7 +256,7 @@ void atualizarEntrada(void) {
 	pro = buscarEntrada(codBarras);
     
 	if (pro == NULL) {
-    	printf("\n\nEntrada não encontrada!\n\n");
+    	printf("\n\nEntrada nao encontrada!\n\n");
   	} else {
           exibirEntrada(pro);
           pro = telaCadastrarEntrada();
@@ -298,20 +299,23 @@ char* telaAtualizarEntrada(void){
 }	
 
 void excluirEntrada(void) {
-	Entrada* pro;
-	char *codBarras;
+Entrada* pro;
+	char* codBarras;
 
 	codBarras = telaExcluirEntrada();
 	pro = (Entrada*) malloc(sizeof(Entrada));
 	pro = buscarEntrada(codBarras);
-	if (pro == NULL) {
-    	printf("\n\nEntrada nao encontrado!\n\n");
-  	} else {
-		  regravarEntrada(pro);
-		  free(pro);
-	}
-	free(codBarras);
+	    if (pro == NULL) {
+    	    printf("\n\nEntrada nao encontrada!\n\n");
+  	    } else {
+            exibirEntrada(pro);
+		    regravarEntrada(pro);
+		    free(pro);
+	    }
+        free(codBarras);
+        printf("\n==== Entrada Excluida ===\n");
 }
+
 void telaErroArquivoEntrada(void) {
 	limpaTela();
 	printf("\n");
@@ -344,7 +348,6 @@ void telaErroArquivoEntrada(void) {
 
 char* telaExcluirEntrada(void) {
 	char *codBarras;
-
 	codBarras = (char*) malloc(12*sizeof(char));
   	limpaTela();
 	printf("\n");

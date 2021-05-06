@@ -9,7 +9,7 @@ struct entrada {
 };
 void moduloEntrada(void);
 char menuEntrada(void);
-void RelaizaEntrada(void);
+void RealizaEntrada(void);
 Entrada* telaCadastrarEntrada(void);
 void gravarEntrada(Entrada* pro);
 int existeEmProdutos(char* cod);

@@ -4,7 +4,7 @@
 
 #include "moduloEntrada.h"
 #include "moduloProduto.h"
-#include "moduloRealatorio.h"
+#include "moduloRelatorio.h"
 #include "validador.h"
 
 void moduloRelatorio(void){
