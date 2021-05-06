@@ -96,7 +96,7 @@ int fazerRetirada(char* cod){
 		if (strcmp(proLido->codBarras,cod) == 0) {
 			achou = True;
 			fseek(fp, -1*sizeof(Entrada), SEEK_CUR);
-			proLido->quantidade=pegarQuantidadeRetirada()*-1;
+			proLido->quantidade=pegarQuantidadeRetirada()*1;
         	fwrite(proLido, sizeof(Entrada), 1, fp);
 		}
 	}
