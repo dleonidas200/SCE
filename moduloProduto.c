@@ -70,7 +70,6 @@ Produto* telaAttProduto(Produto *pro){
 	printf("///        ===================================================            ///\n");
 	printf("///          Developed by @dleonidas200 @MarlemM - Jan, 2021              ///\n");
 	printf("///        ===================================================            ///\n");
-	printf("///              Adapted of the  @flgorgonio - Jan, 2021                  ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -126,7 +125,6 @@ char menuProduto(void) {
 	printf("///        ===================================================            ///\n");
 	printf("///          Developed by @dleonidas200 @MarlemM - Jan, 2021              ///\n");
 	printf("///        ===================================================            ///\n");
-	printf("///              Adapted of the  @flgorgonio - Jan, 2021                  ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -162,7 +160,6 @@ void telaErroArquivoProduto(void) {
 	printf("///        ===================================================            ///\n");
 	printf("///          Developed by @dleonidas200 @MarlemM - Jan, 2021              ///\n");
 	printf("///        ===================================================            ///\n");
-	printf("///              Adapted of the  @flgorgonio - Jan, 2021                  ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -196,7 +193,6 @@ Produto* telaCadastrarProduto(void) {
 	printf("///        ===================================================            ///\n");
 	printf("///          Developed by @dleonidas200 @MarlemM - Jan, 2021              ///\n");
 	printf("///        ===================================================            ///\n");
-	printf("///              Adapted of the  @flgorgonio - Jan, 2021                  ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -241,7 +237,6 @@ char* telaPesquisarProduto(void) {
 	printf("///        ===================================================            ///\n");
 	printf("///          Developed by @dleonidas200 @MarlemM - Jan, 2021              ///\n");
 	printf("///        ===================================================            ///\n");
-	printf("///              Adapted of the  @flgorgonio - Jan, 2021                  ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -275,7 +270,6 @@ char* telaAtualizarProduto(void) {
 	printf("///        ===================================================            ///\n");
 	printf("///          Developed by @dleonidas200 @MarlemM - Jan, 2021              ///\n");
 	printf("///        ===================================================            ///\n");
-	printf("///              Adapted of the  @flgorgonio - Jan, 2021                  ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -309,7 +303,6 @@ char* telaExcluirProduto(void) {
 	printf("///        ===================================================            ///\n");
 	printf("///          Developed by @dleonidas200 @MarlemM - Jan, 2021              ///\n");
 	printf("///        ===================================================            ///\n");
-	printf("///              Adapted of the  @flgorgonio - Jan, 2021                  ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");

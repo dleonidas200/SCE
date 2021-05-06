@@ -56,7 +56,6 @@ char menuPrincipal(void) {
 	printf("///        ===================================================            ///\n");
 	printf("///          Developed by @dleonidas200 @MarlemM - Jan, 2021              ///\n");
 	printf("///        ===================================================            ///\n");
-	printf("///              Adapted of the  @flgorgonio - Jan, 2021                  ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -97,7 +96,6 @@ void telaSobre(void) {
 	printf("///          =====================================================        ///\n");
 	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = = =        ///\n");
 	printf("///          =  SCE-Inventory-Um Sistema de Controle de Estoques =        ///\n");
-	printf("///          = = = = # Projeto adapted of the @flgorgonio  = = = =        ///\n");
 	printf("///          =================================================== =        ///\n");
 	printf("///                                                                       ///\n");
 	printf("/// # Finalidade                                                          ///\n");

@@ -36,7 +36,7 @@ char menuEntrada(void){
 	printf("///          = = = =                                     = = = =          ///\n");
 	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
 	printf("///          ===================================================          ///\n");
-	printf("///                Developed by  @flgorgonio - Jan, 2021                  ///\n");
+	printf("///          Developed by @dleonidas200 @MarlemM - Jan, 2021              ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -97,7 +97,6 @@ Entrada* telaCadastrarEntrada(void) {
 	printf("///        ===================================================            ///\n");
 	printf("///          Developed by @dleonidas200 @MarlemM - Jan, 2021              ///\n");
 	printf("///        ===================================================            ///\n");
-	printf("///              Adapted of the  @flgorgonio - Jan, 2021                  ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -159,7 +158,6 @@ char* telaPesquisarEntrada(void) {
 	printf("///        ===================================================            ///\n");
 	printf("///          Developed by @dleonidas200 @MarlemM - Jan, 2021              ///\n");
 	printf("///        ===================================================            ///\n");
-	printf("///              Adapted of the  @flgorgonio - Jan, 2021                  ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -291,7 +289,6 @@ void telaErroArquivoEntrada(void) {
 	printf("///        ===================================================            ///\n");
 	printf("///          Developed by @dleonidas200 @MarlemM - Jan, 2021              ///\n");
 	printf("///        ===================================================            ///\n");
-	printf("///              Adapted of the  @flgorgonio - Jan, 2021                  ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -324,7 +321,6 @@ char* telaAtualizarEntrada(void) {
 	printf("///        ===================================================            ///\n");
 	printf("///          Developed by @dleonidas200 @MarlemM - Jan, 2021              ///\n");
 	printf("///        ===================================================            ///\n");
-	printf("///              Adapted of the  @flgorgonio - Jan, 2021                  ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -358,7 +354,6 @@ char* telaExcluirEntrada(void) {
 	printf("///        ===================================================            ///\n");
 	printf("///          Developed by @dleonidas200 @MarlemM - Jan, 2021              ///\n");
 	printf("///        ===================================================            ///\n");
-	printf("///              Adapted of the  @flgorgonio - Jan, 2021                  ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
