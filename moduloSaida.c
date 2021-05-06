@@ -53,12 +53,12 @@ char menuSaida(void){
 
 void realizarSaida(void){
 	char *codigo;
-	codigo = telaUnformarSaida();
+	codigo = telaInformarSaida();
 	fazerRetirada(codigo);
 
 	free(codigo);
 }
-char* telaUnformarSaida(void) {
+char* telaInformarSaida(void) {
 	char *codBarras;
 	codBarras = (char*)malloc(12*sizeof(char));
 	limpaTela();
