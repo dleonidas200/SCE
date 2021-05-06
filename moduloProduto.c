@@ -107,6 +107,7 @@ void excluirProduto(void) {
 		  pro->status = False;
 		  regravarProduto(pro);
 		  free(pro);
+		  printf("\n==== Produto Excluido ===\n");
 	}
 	free(codBarras);
 }
