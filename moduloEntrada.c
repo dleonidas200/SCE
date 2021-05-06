@@ -33,7 +33,7 @@ char menuEntrada(void){
 	printf("///                                                                       ///\n");
 	printf("///          ===================================================          ///\n");
 	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
-	printf("///          = = = =                                     = = = =          ///\n");
+	printf("///          = = = =            Modulo Entrada           = = = =          ///\n");
 	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
 	printf("///          ===================================================          ///\n");
 	printf("///          Developed by @dleonidas200 @MarlemM - Jan, 2021              ///\n");
@@ -41,7 +41,7 @@ char menuEntrada(void){
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-	printf("///           = = = = = = = =  Modulo Entrda  = = = = = = = =             ///\n");
+	printf("///           = = = = = = = =  Modulo Entrada  = = = = = = = =             ///\n");
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
 	printf("///                                                                       ///\n");
 	printf("///           1. Realizar entrada de Produto                              ///\n");
@@ -51,7 +51,7 @@ char menuEntrada(void){
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	printf("///           Escolha a opção desejada: ");
+	printf("///           Escolha a opcao desejada: ");
 	scanf("%c", &op);
 	getchar();
 	printf("\n");
@@ -62,7 +62,7 @@ char menuEntrada(void){
 void RelaizaEntrada(void) {
 	char codBarras[12];
 	Entrada *pro;
-	printf("Informe o codigo de barras do produto (apenas números): ");
+	printf("Informe o codigo de barras do produto (apenas numeros): ");
 	scanf("%[0-9]",codBarras);
 	getchar();                            
 	printf("\n");
@@ -70,7 +70,7 @@ void RelaizaEntrada(void) {
 		pro=telaCadastrarEntrada(); 
 		gravarEntrada(pro);
 	}else{
-		printf("Este codigo de barras não pertence a nenhum produto \n");
+		printf("Este codigo de barras nao pertence a nenhum produto \n");
 	}
 	free(pro);
 }
@@ -105,7 +105,7 @@ Entrada* telaCadastrarEntrada(void) {
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
 	printf("///                                                                       ///\n");
 	do {
-		printf("///           Codigo de Barras (apenas números): ");
+		printf("///           Codigo de Barras (apenas numeros): ");
 		scanf("%[^\n]", pro->codBarras);
 		getchar();
 	} while (!validarCodBarras(pro->codBarras));
@@ -165,7 +165,7 @@ char* telaPesquisarEntrada(void) {
 	printf("///           = = = = = = = = Pesquisar Entrada = = = = = = =             ///\n");
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
 	printf("///                                                                       ///\n");
-	printf("///           Informe o codigo de barras do produto (apenas números): ");
+	printf("///           Informe o codigo de barras do produto (apenas numeros): ");
 	scanf("%[0-9]", codBarras);
 	getchar();
 	printf("///                                                                       ///\n");
@@ -183,7 +183,7 @@ void gravarEntrada(Entrada* pro) {
 		printf("Erro na gravação de arquivo \n");
 	}
 	fwrite(pro, sizeof(Entrada), 1, fp);
-	fputs("\n",fp);
+//	fputs("\n",fp);
 	fclose(fp);
 }
 
@@ -273,7 +273,7 @@ void excluirEntrada(void) {
 	pro = (Entrada*) malloc(sizeof(Entrada));
 	pro = buscarEntrada(codBarras);
 	if (pro == NULL) {
-    	printf("\n\nEntrada não encontrado!\n\n");
+    	printf("\n\nEntrada nao encontrado!\n\n");
   	} else {
 		  regravarEntrada(pro);
 		  free(pro);
@@ -297,7 +297,7 @@ void telaErroArquivoEntrada(void) {
 	printf("///                                                                       ///\n");
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
 	printf("///           = = = = = = =  Ops! Ocorreu em erro = = = = = =             ///\n");
-	printf("///           = = =  Não foi possível acessar o arquivo = = =             ///\n");
+	printf("///           = = =  Nao foi possível acessar o arquivo = = =             ///\n");
 	printf("///           = = = = com informações sobre os Entradas = = =             ///\n");
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
 	printf("///           = =  Pedimos desculpas pelos inconvenientes = =             ///\n");
@@ -331,7 +331,7 @@ char* telaAtualizarEntrada(void) {
 	printf("///           = = = = = = = = Atualizar Entrada = = = = = = =             ///\n");
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
 	printf("///                                                                       ///\n");
-	printf("///           Informe o codigo de barras do Entrada (apenas números): ");
+	printf("///           Informe o codigo de barras do Entrada (apenas numeros): ");
 	scanf("%[0-9]", codBarras);
 	getchar();
 	printf("///                                                                       ///\n");
@@ -364,7 +364,7 @@ char* telaExcluirEntrada(void) {
 	printf("///           = = = = = = = =  Excluir Entrada  = = = = = = =             ///\n");
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
 	printf("///                                                                       ///\n");
-	printf("///           Informe o codigo de barras do Entrada (apenas números): ");
+	printf("///           Informe o codigo de barras do Entrada (apenas numeros): ");
 	scanf("%[0-9]", codBarras);
 	getchar();
 	printf("///                                                                       ///\n");

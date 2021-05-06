@@ -37,7 +37,7 @@ char menuRelatorio(void) {
 	printf("///           2. Lista todas as ocorrencias de entrdas                    ///\n");
 	printf("///           0. Voltar ao menu anterior                                  ///\n");
 	printf("///                                                                       ///\n");
-	printf("///           Escolha a opção desejada: ");
+	printf("///           Escolha a opcao desejada: ");
 	scanf("%c", &op);
 	getchar();
 	printf("///                                                                       ///\n");

@@ -25,14 +25,22 @@ char menuSaida(void){
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
+	printf("///          ===================================================          ///\n");
+	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+	printf("///          = = = =            Menu Saida               = = = =          ///\n");
+	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+	printf("///          ===================================================          ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-	printf("///           = = = = = = = =  Menu Relatório = = = = = = = =             ///\n");
+	printf("///           = = = = = = = =    Menu Saida   = = = = = = = =             ///\n");
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
 	printf("///                                                                       ///\n");
 	printf("///           1. Para fazer a retirada de produtos                        ///\n");
 	printf("///           0. Voltar ao menu anterior                                  ///\n");
 	printf("///                                                                       ///\n");
-	printf("///           Escolha a opção desejada: ");
+	printf("///           Escolha a opcao desejada: ");
 	scanf("%c", &op);
 	getchar();
 	printf("///                                                                       ///\n");
@@ -51,8 +59,8 @@ void realizarSaida(void){
 	free(codigo);
 }
 char* telaUnformarSaida(void) {
-	char *codBarras;
-	codBarras = (char*)malloc(12*sizeof(char));
+	char *nome;
+	nome = (char*)malloc(51*sizeof(char));
 	limpaTela();
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -68,20 +76,20 @@ char* telaUnformarSaida(void) {
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-	printf("///           = = = = = = = = Relalizar Saida   = = = = = = =             ///\n");
+	printf("///           = = = = = = = =   Realizar Saida  = = = = = = =             ///\n");
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
 	printf("///                                                                       ///\n");
 	do {
 		printf("///           Informe o codigo de barras do Produto: ");
-		scanf("%[^\n]",codBarras);
+		scanf("%[^\n]",nome);
 		getchar();
-	} while (!validarCodBarras(codBarras));
+	} while (!validarNome(nome));
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
 	//delay(1);
-  	return codBarras;
+  	return nome;
 }
 int fazerRetirada(char* cod){
 	FILE* fp;
@@ -96,7 +104,7 @@ int fazerRetirada(char* cod){
 		if (strcmp(proLido->codBarras,cod) == 0) {
 			achou = True;
 			fseek(fp, -1*sizeof(Entrada), SEEK_CUR);
-			proLido->quantidade=pegarQuantidadeRetirada()*1;
+			proLido->quantidade=pegarQuantidadeRetirada()*-1;
         	fwrite(proLido, sizeof(Entrada), 1, fp);
 		}
 	}

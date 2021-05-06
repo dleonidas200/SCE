@@ -102,7 +102,7 @@ void excluirProduto(void) {
 	pro = (Produto*) malloc(sizeof(Produto));
 	pro = buscarProduto(codBarras);
 	if (pro == NULL) {
-    	printf("\n\nProduto não encontrado!\n\n");
+    	printf("\n\nProduto nao encontrado!\n\n");
   	} else {
 		  pro->status = False;
 		  regravarProduto(pro);
@@ -141,7 +141,7 @@ char menuProduto(void) {
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	printf("///           Escolha a opção desejada: ");
+	printf("///           Escolha a opcao desejada: ");
 	scanf("%c", &op);
 	getchar();
 	delay(1);
@@ -165,11 +165,11 @@ void telaErroArquivoProduto(void) {
 	printf("///                                                                       ///\n");
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
 	printf("///           = = = = = = =  Ops! Ocorreu em erro = = = = = =             ///\n");
-	printf("///           = = =  Não foi possível acessar o arquivo = = =             ///\n");
+	printf("///           = = =  Nao foi possível acessar o arquivo = = =             ///\n");
 	printf("///           = = = = com informações sobre os produtos = = =             ///\n");
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
 	printf("///           = =  Pedimos desculpas pelos inconvenientes = =             ///\n");
-	printf("///           = = =  mas este programa será finalizado! = = =             ///\n");
+	printf("///           = = =  mas este programa sera finalizado! = = =             ///\n");
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
 	printf("///                                                                       ///\n");
 	printf("\n\nTecle ENTER para continuar!\n\n");
@@ -201,7 +201,7 @@ Produto* telaCadastrarProduto(void) {
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
 	printf("///                                                                       ///\n");
 	do {
-		printf("///           Codigo de Barras (apenas números): ");
+		printf("///           Codigo de Barras (apenas numeros): ");
 		scanf("%[^\n]", pro->codBarras);
 		getchar();
 	} while (!validarCodBarras(pro->codBarras));
@@ -247,7 +247,7 @@ char* telaPesquisarProduto(void) {
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	printf("///           Informe o codigo de barras do produto (apenas números): ");
+	printf("///           Informe o codigo de barras do produto (apenas numeros): ");
 	scanf("%[0-9]", codBarras);
 	getchar();
 	delay(1);
@@ -280,7 +280,7 @@ char* telaAtualizarProduto(void) {
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	printf("///           Informe o codigo de barras do produto (apenas números): ");
+	printf("///           Informe o codigo de barras do produto (apenas numeros): ");
 	scanf("%[0-9]", codBarras);
 	getchar();
 	delay(1);
@@ -313,7 +313,7 @@ char* telaExcluirProduto(void) {
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	printf("///           Informe o codigo de barras do produto (apenas números): ");
+	printf("///           Informe o codigo de barras do produto (apenas numeros): ");
 	scanf("%[0-9]", codBarras);
 	getchar();
 	delay(1);
@@ -328,7 +328,6 @@ void gravarProduto(Produto* pro) {
 		telaErroArquivoProduto();
 	}
 	fwrite(pro, sizeof(Produto), 1, fp);
-	fputs("\n",fp);
 	fclose(fp);
 }
 
@@ -386,7 +385,6 @@ void regravarProduto(Produto* pro) {
 			achou = True;
 			fseek(fp, -1*sizeof(Produto), SEEK_CUR);
         	fwrite(pro, sizeof(Produto), 1, fp);
-			fputs("\n",fp);
 		}
 	}
 	fclose(fp);

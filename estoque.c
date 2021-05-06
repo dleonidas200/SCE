@@ -96,6 +96,7 @@ void telaSobre(void) {
 	printf("///          =====================================================        ///\n");
 	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = = =        ///\n");
 	printf("///          =  SCE-Inventory-Um Sistema de Controle de Estoques =        ///\n");
+	printf("///          = = = = # Projeto adapted of the @flgorgonio  = = = =        ///\n");
 	printf("///          =================================================== =        ///\n");
 	printf("///                                                                       ///\n");
 	printf("/// # Finalidade                                                          ///\n");
