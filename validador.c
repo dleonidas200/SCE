@@ -162,8 +162,7 @@ int validarCodBarras(char* codBarras) {
   int tam;
   
   FILE* fp;
-	Produto* pro;
-	pro = (Produto*) malloc(sizeof(Produto));
+	Produto* pro = (Produto*) malloc(sizeof(Produto));
 	fp = fopen("produtos.dat","rb");
 	if (fp == NULL) {
 		return 1;
@@ -171,11 +170,12 @@ int validarCodBarras(char* codBarras) {
 	while(fread(pro, sizeof(Produto), 1, fp)) {
 		if ((strcmp(pro->codBarras, codBarras) == 0) && (pro->status == 1)) {
 			fclose(fp);
-			return 0;
+      free(pro);
+			return 1;
 		}
 	}
 	fclose(fp);
-
+  free(pro);
   tam = strlen(codBarras);
   
   for (int i = 0; i < tam; i++) {
