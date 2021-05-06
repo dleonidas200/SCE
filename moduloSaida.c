@@ -88,7 +88,7 @@ int fazerRetirada(char* cod){
 	Entrada* proLido;
 	int achou = False;
 	proLido = (Entrada*) malloc(sizeof(Entrada));
-	fp = fopen("Entradas.txt", "r+b");
+	fp = fopen("Entradas.dat", "r+b");
 	if (fp == NULL) {
 		printf("Arquivo Vazio \n");
 	}

@@ -164,7 +164,7 @@ int validarCodBarras(char* codBarras) {
   FILE* fp;
 	Produto* pro;
 	pro = (Produto*) malloc(sizeof(Produto));
-	fp = fopen("produtos.txt","rb");
+	fp = fopen("produtos.dat","rb");
 	if (fp == NULL) {
 		return 1;
 	}

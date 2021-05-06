@@ -52,7 +52,7 @@ void exibirTodasEntradas(){
 	Entrada* pro;
 
 	pro = (Entrada*) malloc(sizeof(Entrada));
-	fp = fopen("Entradas.txt", "rb");
+	fp = fopen("Entradas.dat", "rb");
 	if (fp != NULL) {
 		while(fread(pro, sizeof(Entrada), 1, fp)) {
 			printf("\n= = = Entrada Cadastrado = = =\n");
@@ -78,7 +78,7 @@ void exibirEntradaEspecifica(){
 	Entrada* pro;
 	pro = (Entrada*) malloc(sizeof(Entrada));
 
-	fp = fopen("Entradas.txt", "rb");
+	fp = fopen("Entradas.dat", "rb");
 	if (fp != NULL) {
 		while(fread(pro, sizeof(Entrada), 1, fp)){
 			if(strcmp(pro->codBarras,cod)==0){

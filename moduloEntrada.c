@@ -178,7 +178,7 @@ char* telaPesquisarEntrada(void) {
 void gravarEntrada(Entrada* pro) {
 	FILE* fp;
 
-	fp = fopen("Entradas.txt", "ab");
+	fp = fopen("Entradas.dat", "ab");
 	if (fp == NULL) {
 		printf("Erro na gravação de arquivo \n");
 	}
@@ -192,7 +192,7 @@ Entrada* buscarEntrada(char* codBarras) {
 	Entrada* pro;
 
 	pro = (Entrada*) malloc(sizeof(Entrada));
-	fp = fopen("Entradas.txt", "rb");
+	fp = fopen("Entradas.dat", "rb");
 	if (fp == NULL) {
 		printf("Não existe nenhum dado \n");
 	}
@@ -224,7 +224,7 @@ void regravarEntrada(Entrada* pro) {
 	Entrada* proLido;
 
 	proLido = (Entrada*) malloc(sizeof(Entrada));
-	fp = fopen("Entradas.txt", "r+b");
+	fp = fopen("Entradas.dat", "r+b");
 	if (fp == NULL) {
 		telaErroArquivoEntrada();
 	}
