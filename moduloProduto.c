@@ -323,11 +323,12 @@ char* telaExcluirProduto(void) {
 void gravarProduto(Produto* pro) {
 	FILE* fp;
 
-	fp = fopen("produtos.dat", "ab");
+	fp = fopen("produtos.txt", "ab");
 	if (fp == NULL) {
 		telaErroArquivoProduto();
 	}
 	fwrite(pro, sizeof(Produto), 1, fp);
+	fputs("\n",fp);
 	fclose(fp);
 }
 
@@ -337,7 +338,7 @@ Produto* buscarProduto(char* codBarras) {
 	Produto* pro;
 
 	pro = (Produto*) malloc(sizeof(Produto));
-	fp = fopen("produtos.dat", "rb");
+	fp = fopen("produtos.txt", "rb");
 	if (fp == NULL) {
 		telaErroArquivoProduto();
 	}
@@ -375,7 +376,7 @@ void regravarProduto(Produto* pro) {
 	Produto* proLido;
 
 	proLido = (Produto*) malloc(sizeof(Produto));
-	fp = fopen("produtos.dat", "r+b");
+	fp = fopen("produtos.txt", "r+b");
 	if (fp == NULL) {
 		telaErroArquivoProduto();
 	}
@@ -385,6 +386,7 @@ void regravarProduto(Produto* pro) {
 			achou = True;
 			fseek(fp, -1*sizeof(Produto), SEEK_CUR);
         	fwrite(pro, sizeof(Produto), 1, fp);
+			fputs("\n",fp);
 		}
 	}
 	fclose(fp);
@@ -395,7 +397,7 @@ char* buscarcodPNome(char* nome) {
 	FILE* fp;
 	Produto* pro;
 	pro = (Produto*) malloc(sizeof(Produto));
-	fp = fopen("produtos.dat", "rb");
+	fp = fopen("produtos.txt", "rb");
 	if (fp == NULL) {
 		telaErroArquivoProduto();
 	}
