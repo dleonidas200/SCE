@@ -16,9 +16,11 @@ void moduloEntrada(void){
 			case '2': 	
 				pesquisarEntrada();
 				break;
-			case '3': 	//
+			case '3': 	
+				atualizarEntrada();
 				break;
-			case '4': 	//
+			case '4':
+				excluirEntrada();
 				break;
 		} 		
 	} while (opcao != '0');
@@ -46,6 +48,7 @@ char menuEntrada(void){
 	printf("///                                                                       ///\n");
 	printf("///           1. Realizar entrada de Produto                              ///\n");
 	printf("///           2. Pesquisar entrada de Produto                             ///\n");
+	printf("///           3. Atualizar entrada de Produto                             ///\n");
 	printf("///           0. Voltar ao menu anterior                                  ///\n");
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
@@ -129,7 +132,7 @@ Entrada* telaCadastrarEntrada(void) {
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
-	//delay(1);
+	delay(1);
   	return pro;
 }
 
@@ -248,22 +251,51 @@ void regravarEntrada(Entrada* pro) {
 void atualizarEntrada(void) {
 	Entrada* pro;
 	char* codBarras;
-
 	codBarras = telaAtualizarEntrada();
 	pro = buscarEntrada(codBarras);
+    
 	if (pro == NULL) {
-    	printf("\n\nEntrada não encontrado!\n\n");
+    	printf("\n\nEntrada não encontrada!\n\n");
   	} else {
-		  pro = telaCadastrarEntrada();
-		  strcpy(pro->codBarras, codBarras);
+          exibirEntrada(pro);
+          pro = telaCadastrarEntrada();
+          strcpy(pro->codBarras, codBarras);
 		  regravarEntrada(pro);
-		  // Outra opção:
-		  // excluirEntrada(codBarras);
-		  // gravarEntrada(pro);
 		  free(pro);
+          
 	}
-	free(codBarras);
+    free(codBarras);
 }
+
+char* telaAtualizarEntrada(void){
+    char* codBarras;
+    codBarras = (char*) malloc(12*sizeof(char));
+
+    system("clear");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///        ===================================================            ///\n");
+	printf("///        = = = = = = = = = = = = = = = = = = = = = = = = = =            ///\n");
+	printf("///        = = = =   Sistema de Controle de Estoque    = = = =            ///\n");
+	printf("///        = = = = = = = = = = = = = = = = = = = = = = = = = =            ///\n");
+	printf("///        ===================================================            ///\n");
+	printf("///          Developed by @dleonidas200 @MarlemM - Jan, 2021              ///\n");
+	printf("///        ===================================================            ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+	printf("///           = = = = = = = = Atualiza  Entrada = = = = = = =             ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+	printf("///                                                                       ///\n");
+    printf("///           Informe o codigo de barras do Entrada (apenas numeros): ");
+	scanf("%[0-9]", codBarras);
+    getchar();
+    printf("|///////////////////////////////////////////////////////////////////////////////|\n"); 
+    printf("\n");    
+    delay(1); 
+    return codBarras;  
+}	
 
 void excluirEntrada(void) {
 	Entrada* pro;
@@ -309,38 +341,6 @@ void telaErroArquivoEntrada(void) {
 	exit(1);
 }
 
-char* telaAtualizarEntrada(void) {
-	char* codBarras;
-
-	codBarras = (char*) malloc(12*sizeof(char));
-	limpaTela();
-	printf("\n");
-	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	printf("///                                                                       ///\n");
-	printf("///        ===================================================            ///\n");
-	printf("///        = = = = = = = = = = = = = = = = = = = = = = = = = =            ///\n");
-	printf("///        = = = =   Sistema de Controle de Estoque    = = = =            ///\n");
-	printf("///        = = = = = = = = = = = = = = = = = = = = = = = = = =            ///\n");
-	printf("///        ===================================================            ///\n");
-	printf("///          Developed by @dleonidas200 @MarlemM - Jan, 2021              ///\n");
-	printf("///        ===================================================            ///\n");
-	printf("///                                                                       ///\n");
-	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	printf("///                                                                       ///\n");
-	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-	printf("///           = = = = = = = = Atualizar Entrada = = = = = = =             ///\n");
-	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-	printf("///                                                                       ///\n");
-	printf("///           Informe o codigo de barras do Entrada (apenas numeros): ");
-	scanf("%[0-9]", codBarras);
-	getchar();
-	printf("///                                                                       ///\n");
-	printf("///                                                                       ///\n");
-	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	printf("\n");
-	delay(1);
-  	return codBarras;
-}
 
 char* telaExcluirEntrada(void) {
 	char *codBarras;
