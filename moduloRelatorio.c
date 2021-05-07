@@ -65,7 +65,7 @@ void exibirTodasEntradas(){
 	}
 	free(pro);
 	fclose(fp);
-	delay(500);
+	delay(5000);
 }
 void exibirEntradaEspecifica(){
 	char* cod = (char*) malloc(12*sizeof(char));
@@ -93,5 +93,5 @@ void exibirEntradaEspecifica(){
 	}
 	free(pro);
 	fclose(fp);
-	delay(500);
+	delay(5000);
 }
